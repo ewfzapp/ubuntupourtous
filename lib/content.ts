@@ -1,11 +1,18 @@
-export type Profile = 'senior' | 'etudiant' | 'victime-virus' | 'decu-windows' | 'curieux';
-
 export interface QuizQuestion {
   id: string;
   question: string;
   options: string[];
   correct: number;
   explanation: string;
+}
+
+export interface Section {
+  title: string;
+  content: string;
+  tip?: string;
+  warning?: string;
+  steps?: string[];
+  screenshot?: string;
 }
 
 export interface Lesson {
@@ -22,14 +29,6 @@ export interface Lesson {
   prevLesson?: string;
 }
 
-export interface Section {
-  title: string;
-  content: string;
-  tip?: string;
-  warning?: string;
-  steps?: string[];
-}
-
 export interface Module {
   id: string;
   title: string;
@@ -40,6 +39,9 @@ export interface Module {
 }
 
 export const MODULES: Module[] = [
+  // ══════════════════════════════════════════════════════════════
+  // MODULE 1 — PHILOSOPHIE
+  // ══════════════════════════════════════════════════════════════
   {
     id: 'philosophie',
     title: 'La philosophie Linux',
@@ -60,54 +62,24 @@ export const MODULES: Module[] = [
             title: 'Un système d\'exploitation, comme Windows',
             content: 'Votre ordinateur a besoin d\'un chef d\'orchestre pour fonctionner : quelque chose qui gère le clavier, l\'écran, les fichiers, les programmes. Ce chef d\'orchestre, c\'est le système d\'exploitation.\n\nVous connaissez probablement Windows (Microsoft) ou macOS (Apple). Linux est simplement une troisième option — sauf qu\'il est gratuit, libre, et que personne n\'en est propriétaire.',
             tip: 'Un système d\'exploitation, c\'est comme le directeur d\'un hôtel : vous ne le voyez pas travailler, mais sans lui, rien ne fonctionne.',
+            screenshot: 'Comparaison visuelle : logo Windows, macOS et Linux côte à côte',
           },
           {
             title: 'Qui a créé Linux ?',
             content: 'En 1991, un étudiant finlandais de 21 ans nommé Linus Torvalds était frustré par les systèmes existants. Il a décidé d\'en créer un lui-même — pour le plaisir — et de le partager gratuitement avec tout le monde.\n\nDepuis, des milliers de développeurs du monde entier ont contribué à l\'améliorer. Aujourd\'hui, Linux fait tourner 96% des serveurs d\'internet, tous les smartphones Android, la Station spatiale internationale, et des centaines de millions d\'ordinateurs.',
+            screenshot: 'Photo de Linus Torvalds jeune + infographie "Linux est partout"',
           },
           {
             title: 'Ubuntu : Linux pour tout le monde',
             content: 'Il existe des dizaines de versions de Linux, appelées "distributions". Ubuntu est la plus populaire pour les débutants — elle est pensée pour être simple, belle et accessible.\n\nLe mot "Ubuntu" vient du zoulou et signifie "Je suis ce que je suis grâce à ce que nous sommes tous" — une belle philosophie pour un logiciel communautaire.',
             tip: 'Ubuntu est à Linux ce que Chrome est à internet : la porte d\'entrée la plus facile et la plus accueillante.',
+            screenshot: 'Capture du bureau Ubuntu 24.04 — propre et moderne',
           },
         ],
         quiz: [
-          {
-            id: 'ph01-q1',
-            question: 'Qu\'est-ce qu\'un système d\'exploitation ?',
-            options: [
-              'Un logiciel pour naviguer sur internet',
-              'Le chef d\'orchestre qui gère tout votre ordinateur',
-              'Un antivirus',
-              'Une application pour écrire des documents',
-            ],
-            correct: 1,
-            explanation: 'Le système d\'exploitation (Windows, macOS, Linux) gère tout le fonctionnement de votre ordinateur : le clavier, l\'écran, les fichiers, les programmes.',
-          },
-          {
-            id: 'ph01-q2',
-            question: 'Qui a créé Linux ?',
-            options: [
-              'Bill Gates, le fondateur de Microsoft',
-              'Steve Jobs, le fondateur d\'Apple',
-              'Linus Torvalds, un étudiant finlandais',
-              'Google',
-            ],
-            correct: 2,
-            explanation: 'Linus Torvalds a créé Linux en 1991 alors qu\'il était étudiant en Finlande. Il avait 21 ans.',
-          },
-          {
-            id: 'ph01-q3',
-            question: 'Que signifie "Ubuntu" en zoulou ?',
-            options: [
-              'Ordinateur gratuit',
-              'Système rapide',
-              'Je suis ce que je suis grâce à ce que nous sommes tous',
-              'Pingouin africain',
-            ],
-            correct: 2,
-            explanation: '"Ubuntu" est un mot zoulou qui exprime la solidarité et l\'humanité partagée — parfaitement en accord avec la philosophie du logiciel libre.',
-          },
+          { id: 'ph01-q1', question: 'Qu\'est-ce qu\'un système d\'exploitation ?', options: ['Un logiciel pour naviguer sur internet', 'Le chef d\'orchestre qui gère tout votre ordinateur', 'Un antivirus', 'Une application pour écrire des documents'], correct: 1, explanation: 'Le système d\'exploitation (Windows, macOS, Linux) gère tout le fonctionnement de votre ordinateur : le clavier, l\'écran, les fichiers, les programmes.' },
+          { id: 'ph01-q2', question: 'Qui a créé Linux ?', options: ['Bill Gates, le fondateur de Microsoft', 'Steve Jobs, le fondateur d\'Apple', 'Linus Torvalds, un étudiant finlandais', 'Google'], correct: 2, explanation: 'Linus Torvalds a créé Linux en 1991 alors qu\'il était étudiant en Finlande. Il avait 21 ans.' },
+          { id: 'ph01-q3', question: 'Que signifie "Ubuntu" en zoulou ?', options: ['Ordinateur gratuit', 'Système rapide', 'Je suis ce que je suis grâce à ce que nous sommes tous', 'Pingouin africain'], correct: 2, explanation: '"Ubuntu" est un mot zoulou qui exprime la solidarité et l\'humanité partagée.' },
         ],
         nextLesson: 'pourquoi-changer',
       },
@@ -124,53 +96,74 @@ export const MODULES: Module[] = [
             title: 'C\'est gratuit — vraiment gratuit',
             content: 'Ubuntu est gratuit à télécharger, gratuit à installer, et gratuit à utiliser sans limite de temps. Pas de licence à renouveler, pas d\'abonnement, pas de version "pro" cachée derrière un paywall.\n\nLa suite bureautique LibreOffice (l\'équivalent de Word, Excel, PowerPoint) est incluse gratuitement. Le lecteur PDF, le lecteur vidéo, le gestionnaire de photos — tout est là, dès l\'installation.',
             tip: 'Une licence Windows 11 coûte entre 145€ et 200€. Ubuntu coûte 0€. Pour toujours.',
+            screenshot: 'Comparaison prix : Windows 145€ vs Ubuntu 0€',
           },
           {
             title: 'Les virus ? Presque inexistants',
             content: 'Linux est nativement bien plus résistant aux virus que Windows. Pourquoi ? Parce que sa conception même rend difficile l\'exécution d\'un programme malveillant sans votre autorisation explicite.\n\nLes auteurs de virus ciblent Windows car c\'est là que se trouvent 90% des victimes potentielles. Sur Linux, vous êtes une cible bien moins attractive.',
             tip: 'Sur Ubuntu, vous n\'avez pas besoin d\'antivirus. Le système lui-même est votre meilleure protection.',
+            screenshot: 'Infographie : 90% des virus ciblent Windows, quasi 0% Linux',
           },
           {
             title: 'Ça redonne vie aux vieux PC',
             content: 'Votre ordinateur rame sous Windows 10 ou 11 ? Ubuntu peut le ressusciter. Il consomme bien moins de ressources, démarre plus vite, et tourne parfaitement sur des machines qui auraient du mal avec les dernières versions de Windows.\n\nUn PC de 2012 avec 4 Go de RAM peut fonctionner parfaitement sous Ubuntu — là où Windows 11 refuserait même de s\'installer.',
             warning: 'Windows 10 arrive en fin de support en octobre 2025. Microsoft voudra vous vendre Windows 11. Avec Ubuntu, cette question ne se pose plus jamais.',
+            screenshot: 'Tableau comparatif RAM/CPU requis : Windows 11 vs Ubuntu 24.04',
           },
           {
             title: 'Votre vie privée vous appartient',
             content: 'Windows collecte énormément de données sur votre utilisation : ce que vous tapez, vos habitudes, vos fichiers. Ubuntu ne fait rien de tel. Canonical (l\'entreprise derrière Ubuntu) a un modèle économique basé sur les services aux entreprises — pas sur la revente de vos données.',
+            screenshot: 'Capture : paramètres de confidentialité Ubuntu — minimalistes et clairs',
           },
         ],
         quiz: [
-          {
-            id: 'ph02-q1',
-            question: 'Combien coûte Ubuntu ?',
-            options: [
-              '9,99€ / mois',
-              '145€ (licence unique)',
-              '0€ — totalement gratuit',
-              'Gratuit la première année, puis payant',
-            ],
-            correct: 2,
-            explanation: 'Ubuntu est totalement gratuit, pour toujours. Pas d\'abonnement, pas de licence, pas de version payante cachée.',
-          },
-          {
-            id: 'ph02-q2',
-            question: 'Pourquoi y a-t-il moins de virus sous Linux ?',
-            options: [
-              'Linux a le meilleur antivirus du monde',
-              'Sa conception rend difficile l\'exécution de programmes malveillants, et les hackers ciblent prioritairement Windows',
-              'Linux est trop vieux pour être attaqué',
-              'Linux n\'est pas connecté à internet',
-            ],
-            correct: 1,
-            explanation: 'La conception de Linux rend difficile l\'exécution non autorisée de programmes. De plus, les auteurs de virus ciblent Windows car c\'est là que se trouvent 90% des victimes potentielles.',
-          },
+          { id: 'ph02-q1', question: 'Combien coûte Ubuntu ?', options: ['9,99€ / mois', '145€ (licence unique)', '0€ — totalement gratuit', 'Gratuit la première année, puis payant'], correct: 2, explanation: 'Ubuntu est totalement gratuit, pour toujours. Pas d\'abonnement, pas de licence, pas de version payante cachée.' },
+          { id: 'ph02-q2', question: 'Pourquoi y a-t-il moins de virus sous Linux ?', options: ['Linux a le meilleur antivirus du monde', 'Sa conception rend difficile l\'exécution de programmes malveillants, et les hackers ciblent prioritairement Windows', 'Linux est trop vieux pour être attaqué', 'Linux n\'est pas connecté à internet'], correct: 1, explanation: 'La conception de Linux rend difficile l\'exécution non autorisée de programmes. De plus, les auteurs de virus ciblent Windows car c\'est là que se trouvent 90% des victimes potentielles.' },
+          { id: 'ph02-q3', question: 'Quel PC peut faire tourner Ubuntu ?', options: ['Uniquement les PC récents (moins de 3 ans)', 'Seulement les PC avec 16 Go de RAM', 'Des PC de 10-15 ans avec 4 Go de RAM', 'Ubuntu nécessite un processeur Intel dernier cri'], correct: 2, explanation: 'Ubuntu fonctionne très bien sur des machines de 10 à 15 ans avec 4 Go de RAM minimum — là où Windows 11 refuse souvent de s\'installer.' },
         ],
         prevLesson: 'cest-quoi-linux',
+        nextLesson: 'linux-windows-mac',
+      },
+      {
+        id: 'ph-03',
+        slug: 'linux-windows-mac',
+        title: 'Linux vs Windows vs Mac',
+        subtitle: 'Comprendre les différences pour faire son choix',
+        duration: '8 min',
+        icon: '⚖️',
+        intro: 'Windows, macOS, Linux — trois systèmes, trois philosophies. Ce chapitre vous aide à comprendre les différences concrètes pour que vous sachiez exactement dans quoi vous vous engagez.',
+        sections: [
+          {
+            title: 'Windows : le roi des entreprises',
+            content: 'Windows est le système d\'exploitation le plus répandu au monde (environ 72% des PC). Sa force : la compatibilité avec presque tous les logiciels et périphériques. Sa faiblesse : le coût, la lenteur progressive, la vulnérabilité aux virus et la collecte de données.\n\nMicrosoft vit de la vente de licences et de services cloud. Votre PC Windows est, d\'une certaine façon, un produit que vous "louez" — et Microsoft en profite pour collecter des données et vous pousser vers ses services.',
+            screenshot: 'Bureau Windows 11 — interface familière mais chargée',
+          },
+          {
+            title: 'macOS : l\'élégance à prix d\'or',
+            content: 'macOS est le système d\'Apple. Beau, fluide, bien intégré avec l\'écosystème Apple (iPhone, iPad, iCloud). Mais il y a un gros inconvénient : vous devez acheter un Mac pour l\'utiliser — et les Mac coûtent très cher (800€ à 3000€+).\n\nmacOS est également bien plus résistant aux virus que Windows. Mais il reste un système propriétaire dont Apple contrôle chaque aspect.',
+            tip: 'Ubuntu offre une expérience proche de macOS en termes de fluidité et de sécurité — mais sur votre PC existant, gratuitement.',
+            screenshot: 'Bureau macOS Sonoma — élégant mais réservé aux Mac',
+          },
+          {
+            title: 'Linux/Ubuntu : la liberté',
+            content: 'Ubuntu combine le meilleur des deux mondes : la sécurité de macOS et la compatibilité matérielle de Windows — le tout gratuitement.\n\nSes avantages uniques :\n• Totalement gratuit et open source\n• Pas de collecte de données\n• Fonctionne sur n\'importe quel PC\n• Communauté mondiale d\'entraide\n• Mises à jour gratuites pendant 5 ans (version LTS)\n• Personnalisable à l\'infini\n\nSon seul inconvénient réel : certains logiciels très spécifiques (Adobe Photoshop, certains jeux AAA) n\'ont pas de version native Linux — des alternatives existent, mais la transition demande un temps d\'adaptation.',
+            screenshot: 'Bureau Ubuntu 24.04 — moderne, épuré, personnalisable',
+          },
+        ],
+        quiz: [
+          { id: 'ph03-q1', question: 'Quel système d\'exploitation est le plus répandu dans le monde ?', options: ['macOS', 'Ubuntu', 'Windows', 'Android'], correct: 2, explanation: 'Windows représente environ 72% des ordinateurs personnels dans le monde, ce qui en fait le système le plus répandu.' },
+          { id: 'ph03-q2', question: 'Quel est le principal inconvénient de macOS ?', options: ['Il est trop lent', 'Il faut obligatoirement acheter un Mac très coûteux', 'Il n\'a pas de navigateur internet', 'Il ne supporte pas le Wi-Fi'], correct: 1, explanation: 'macOS ne fonctionne que sur les ordinateurs Apple (Mac), qui coûtent entre 800€ et plus de 3000€.' },
+          { id: 'ph03-q3', question: 'Quel est le principal inconvénient d\'Ubuntu ?', options: ['Il coûte très cher', 'Certains logiciels très spécifiques n\'ont pas de version native Linux', 'Il ne fonctionne pas sur internet', 'Il faut un PC neuf'], correct: 1, explanation: 'Le principal inconvénient d\'Ubuntu est que certains logiciels très spécifiques (Adobe Photoshop, certains jeux) n\'ont pas de version Linux. Des alternatives existent pour la grande majorité des usages.' },
+        ],
+        prevLesson: 'pourquoi-changer',
         nextLesson: 'dedramatiser',
       },
     ],
   },
+
+  // ══════════════════════════════════════════════════════════════
+  // MODULE 2 — DÉCOUVERTE SANS RISQUE
+  // ══════════════════════════════════════════════════════════════
   {
     id: 'decouverte',
     title: 'Découverte sans risque',
@@ -191,39 +184,26 @@ export const MODULES: Module[] = [
             title: 'Le live USB : votre bouclier',
             content: 'Ubuntu peut fonctionner directement depuis une clé USB, sans jamais toucher à votre disque dur. C\'est ce qu\'on appelle le "mode live".\n\nVous démarrez sur la clé, vous utilisez Ubuntu, vous testez, vous explorez — et quand vous éteignez, votre Windows est exactement là où vous l\'avez laissé. Rien n\'a changé.',
             tip: 'C\'est comme essayer une voiture dans un parking : vous ne vous engagez à rien, et vous pouvez rendre les clés à tout moment.',
+            screenshot: 'Schéma : PC avec clé USB → Ubuntu en live → disque dur intact',
           },
           {
             title: 'Ce que vous pouvez faire en mode live',
             content: 'En mode live, vous pouvez vraiment tout tester :\n• Naviguer sur internet avec Firefox\n• Écrire des documents avec LibreOffice\n• Écouter de la musique, regarder des vidéos\n• Explorer le bureau et les paramètres\n• Tester si votre Wi-Fi, votre imprimante et votre webcam fonctionnent\n\nSeule limite : ce que vous créez ou téléchargez disparaît quand vous éteignez (puisque rien n\'est sauvegardé sur votre disque).',
+            screenshot: 'Bureau Ubuntu en mode live avec Firefox ouvert',
           },
           {
             title: 'De quoi avez-vous besoin ?',
             content: 'Pour tester Ubuntu en live, il vous faut :\n• Une clé USB de 8 Go minimum (environ 5€)\n• Une connexion internet pour télécharger Ubuntu\n• 30 minutes de temps\n\nC\'est tout. Pas besoin de toucher à votre ordinateur, pas besoin de désinstaller quoi que ce soit.',
             tip: 'Vous avez probablement déjà une vieille clé USB qui traîne dans un tiroir. Vérifiez qu\'elle fait au moins 8 Go.',
+            screenshot: 'Photo d\'une clé USB 16 Go — matériel suffisant pour Ubuntu',
           },
         ],
         quiz: [
-          {
-            id: 'dc01-q1',
-            question: 'Qu\'est-ce que le "mode live" d\'Ubuntu ?',
-            options: [
-              'Une version payante d\'Ubuntu',
-              'Ubuntu qui fonctionne depuis une clé USB sans toucher au disque dur',
-              'Un mode de connexion internet',
-              'Un mode pour les développeurs seulement',
-            ],
-            correct: 1,
-            explanation: 'Le mode live permet de démarrer et utiliser Ubuntu directement depuis une clé USB, sans installer quoi que ce soit sur votre disque dur. Votre Windows reste intact.',
-          },
-          {
-            id: 'dc01-q2',
-            question: 'Quelle taille minimale doit faire la clé USB pour Ubuntu ?',
-            options: ['2 Go', '4 Go', '8 Go', '32 Go'],
-            correct: 2,
-            explanation: 'Il faut une clé USB d\'au moins 8 Go pour créer une clé bootable Ubuntu. Les clés de 16 Go ou 32 Go fonctionnent aussi très bien.',
-          },
+          { id: 'dc01-q1', question: 'Qu\'est-ce que le "mode live" d\'Ubuntu ?', options: ['Une version payante d\'Ubuntu', 'Ubuntu qui fonctionne depuis une clé USB sans toucher au disque dur', 'Un mode de connexion internet', 'Un mode pour les développeurs seulement'], correct: 1, explanation: 'Le mode live permet de démarrer et utiliser Ubuntu directement depuis une clé USB, sans installer quoi que ce soit sur votre disque dur. Votre Windows reste intact.' },
+          { id: 'dc01-q2', question: 'Quelle taille minimale doit faire la clé USB pour Ubuntu ?', options: ['2 Go', '4 Go', '8 Go', '32 Go'], correct: 2, explanation: 'Il faut une clé USB d\'au moins 8 Go pour créer une clé bootable Ubuntu.' },
+          { id: 'dc01-q3', question: 'Que se passe-t-il avec vos fichiers créés en mode live quand vous éteignez ?', options: ['Ils sont sauvegardés automatiquement sur votre disque', 'Ils disparaissent car rien n\'est écrit sur le disque dur', 'Ils sont envoyés dans le cloud', 'Ils restent sur la clé USB'], correct: 1, explanation: 'En mode live, Ubuntu fonctionne en mémoire vive. Quand vous éteignez, tout ce que vous avez créé ou téléchargé disparaît. Votre disque dur n\'a pas été touché.' },
         ],
-        prevLesson: 'pourquoi-changer',
+        prevLesson: 'linux-windows-mac',
         nextLesson: 'creer-cle-usb',
       },
       {
@@ -239,75 +219,74 @@ export const MODULES: Module[] = [
             title: 'Étape 1 : Télécharger Ubuntu',
             content: 'Rendez-vous sur ubuntu.com/download/desktop et téléchargez la dernière version LTS (Long Term Support). Le fichier pèse environ 5 Go — prévoyez 30 à 60 minutes selon votre connexion.\n\nLa version LTS est la plus stable et bénéficie de mises à jour de sécurité pendant 5 ans. C\'est celle recommandée pour tous les débutants.',
             tip: 'LTS signifie "Long Term Support" — c\'est la version la plus stable, mise à jour pendant 5 ans. Toujours choisir LTS quand on débute.',
-            steps: [
-              'Allez sur ubuntu.com/download/desktop',
-              'Cliquez sur "Download XX.XX LTS"',
-              'Attendez la fin du téléchargement (fichier .iso)',
-              'Ne double-cliquez PAS sur le fichier — on va l\'utiliser autrement',
-            ],
+            steps: ['Allez sur ubuntu.com/download/desktop', 'Cliquez sur "Download XX.XX LTS"', 'Attendez la fin du téléchargement (fichier .iso)', 'Ne double-cliquez PAS sur le fichier — on va l\'utiliser autrement'],
+            screenshot: 'Capture du site ubuntu.com avec le bouton de téléchargement LTS entouré en rouge',
           },
           {
             title: 'Étape 2 : Installer Balena Etcher',
             content: 'Pour créer la clé USB, on utilise un logiciel gratuit appelé Balena Etcher. Il est disponible pour Windows et Mac, et il rend l\'opération très simple.\n\nTéléchargez-le sur balena.io/etcher — choisissez la version correspondant à votre système actuel (Windows ou Mac).',
-            steps: [
-              'Allez sur balena.io/etcher',
-              'Cliquez sur "Download for Windows" (ou Mac)',
-              'Installez le logiciel normalement',
-              'Branchez votre clé USB (ATTENTION : tout son contenu sera effacé !)',
-            ],
+            steps: ['Allez sur balena.io/etcher', 'Cliquez sur "Download for Windows" (ou Mac)', 'Installez le logiciel normalement', 'Branchez votre clé USB (ATTENTION : tout son contenu sera effacé !)'],
             warning: 'Tout le contenu de votre clé USB sera effacé. Faites une sauvegarde si elle contient des fichiers importants.',
+            screenshot: 'Capture du site balena.io/etcher avec le bouton de téléchargement',
           },
           {
             title: 'Étape 3 : Créer la clé avec Etcher',
             content: 'Etcher est conçu pour être ultra simple — il n\'y a que 3 clics à faire.',
-            steps: [
-              'Ouvrez Balena Etcher',
-              'Cliquez "Flash from file" → sélectionnez le fichier ubuntu-XX.XX.iso téléchargé',
-              'Cliquez "Select target" → choisissez votre clé USB',
-              'Cliquez "Flash!" et attendez (5 à 10 minutes)',
-              'Quand c\'est terminé, votre clé est prête !',
-            ],
+            steps: ['Ouvrez Balena Etcher', 'Cliquez "Flash from file" → sélectionnez le fichier ubuntu-XX.XX.iso téléchargé', 'Cliquez "Select target" → choisissez votre clé USB', 'Cliquez "Flash!" et attendez (5 à 10 minutes)', 'Quand c\'est terminé, votre clé est prête !'],
             tip: 'Etcher vérifie automatiquement que la clé a bien été créée correctement. Si vous voyez "Flash Complete!", tout est parfait.',
+            screenshot: 'Interface Balena Etcher avec les 3 étapes : fichier sélectionné, clé sélectionnée, bouton Flash',
           },
         ],
         quiz: [
-          {
-            id: 'dc02-q1',
-            question: 'Que signifie "LTS" dans "Ubuntu LTS" ?',
-            options: [
-              'Linux Total System',
-              'Long Term Support — version stable sur 5 ans',
-              'Latest Technology Software',
-              'Light Turbo Speed',
-            ],
-            correct: 1,
-            explanation: 'LTS signifie "Long Term Support". C\'est la version d\'Ubuntu qui reçoit des mises à jour de sécurité pendant 5 ans. C\'est toujours la version recommandée pour les débutants.',
-          },
-          {
-            id: 'dc02-q2',
-            question: 'Quel logiciel utilise-t-on pour créer la clé USB Ubuntu ?',
-            options: ['WinZip', 'Balena Etcher', 'VLC', 'Adobe Reader'],
-            correct: 1,
-            explanation: 'Balena Etcher est le logiciel recommandé pour créer une clé USB bootable Ubuntu. Il est gratuit, simple, et disponible pour Windows et Mac.',
-          },
-          {
-            id: 'dc02-q3',
-            question: 'Que faut-il faire avant de créer la clé USB avec Etcher ?',
-            options: [
-              'Formater votre disque dur',
-              'Désinstaller Windows',
-              'Sauvegarder le contenu de la clé USB car il sera effacé',
-              'Activer le Bluetooth',
-            ],
-            correct: 2,
-            explanation: 'Etcher efface tout le contenu de la clé USB pour y installer Ubuntu. Pensez à sauvegarder vos fichiers importants avant.',
-          },
+          { id: 'dc02-q1', question: 'Que signifie "LTS" dans "Ubuntu LTS" ?', options: ['Linux Total System', 'Long Term Support — version stable sur 5 ans', 'Latest Technology Software', 'Light Turbo Speed'], correct: 1, explanation: 'LTS signifie "Long Term Support". C\'est la version d\'Ubuntu qui reçoit des mises à jour de sécurité pendant 5 ans.' },
+          { id: 'dc02-q2', question: 'Quel logiciel utilise-t-on pour créer la clé USB Ubuntu ?', options: ['WinZip', 'Balena Etcher', 'VLC', 'Adobe Reader'], correct: 1, explanation: 'Balena Etcher est le logiciel recommandé pour créer une clé USB bootable Ubuntu. Il est gratuit et simple.' },
+          { id: 'dc02-q3', question: 'Que faut-il faire avant de créer la clé USB avec Etcher ?', options: ['Formater votre disque dur', 'Désinstaller Windows', 'Sauvegarder le contenu de la clé USB car il sera effacé', 'Activer le Bluetooth'], correct: 2, explanation: 'Etcher efface tout le contenu de la clé USB pour y installer Ubuntu. Pensez à sauvegarder vos fichiers importants avant.' },
         ],
         prevLesson: 'dedramatiser',
         nextLesson: 'demarrer-live',
       },
+      {
+        id: 'dc-03',
+        slug: 'demarrer-live',
+        title: 'Démarrer sur la clé USB',
+        subtitle: 'Votre première rencontre avec Ubuntu',
+        duration: '12 min',
+        icon: '🚀',
+        intro: 'Votre clé USB est prête. Maintenant, on va démarrer l\'ordinateur dessus pour découvrir Ubuntu pour la première fois — sans rien installer.',
+        sections: [
+          {
+            title: 'Entrer dans le menu de démarrage',
+            content: 'Quand vous allumez votre ordinateur, il cherche par défaut à démarrer sur votre disque dur (là où Windows est installé). Pour démarrer sur la clé USB, vous devez lui dire de regarder ailleurs.\n\nPour ça, il faut appuyer sur une touche spéciale au tout début du démarrage — avant même que Windows n\'apparaisse.',
+            tip: 'La touche à appuyer dépend de votre marque : F12 (Dell, Lenovo), F9 (HP), F8 ou Échap (Asus), F12 ou F2 (Acer). Regardez l\'écran noir au démarrage — la touche est souvent indiquée en bas.',
+            steps: ['Branchez la clé USB Ubuntu sur votre ordinateur', 'Éteignez complètement l\'ordinateur (pas de veille)', 'Rallumez-le et appuyez immédiatement et répétitivement sur F12 (ou la touche de votre marque)', 'Un menu apparaît — choisissez votre clé USB dans la liste', 'Appuyez sur Entrée'],
+            screenshot: 'Écran du menu de démarrage (boot menu) avec la clé USB listée',
+          },
+          {
+            title: 'L\'écran de bienvenue Ubuntu',
+            content: 'Après quelques secondes de chargement, un écran vous propose deux options :\n• "Essayer Ubuntu" — démarre en mode live sans rien installer\n• "Installer Ubuntu" — lance l\'installation\n\nChoisissez "Essayer Ubuntu" pour l\'instant. Vous pouvez toujours lancer l\'installation depuis le bureau live.',
+            tip: 'Si l\'ordinateur démarre sur Windows comme d\'habitude, réessayez en appuyant plus tôt et plus vite sur la touche du menu de démarrage.',
+            screenshot: 'Écran de bienvenue Ubuntu avec les deux options "Essayer" et "Installer"',
+          },
+          {
+            title: 'Bienvenue dans Ubuntu !',
+            content: 'Après quelques secondes, le bureau Ubuntu apparaît. Vous y êtes !\n\nPrenez le temps d\'explorer : le bureau, le menu des applications, les paramètres. Testez Firefox, ouvrez LibreOffice, connectez-vous à votre Wi-Fi.\n\nC\'est exactement ce que vous aurez si vous installez Ubuntu — en plus rapide, car votre disque dur est plus rapide qu\'une clé USB.',
+            screenshot: 'Bureau Ubuntu 24.04 en mode live — propre avec le dock et Firefox ouvert',
+          },
+        ],
+        quiz: [
+          { id: 'dc03-q1', question: 'Pourquoi faut-il appuyer sur F12 (ou une autre touche) au démarrage ?', options: ['Pour activer Ubuntu', 'Pour dire à l\'ordinateur de démarrer sur la clé USB plutôt que sur le disque dur', 'Pour effacer Windows', 'Pour accélérer le démarrage'], correct: 1, explanation: 'Par défaut, l\'ordinateur démarre sur le disque dur (Windows). Appuyer sur F12 ouvre le menu de sélection du périphérique de démarrage.' },
+          { id: 'dc03-q2', question: 'Quelle option choisir sur l\'écran de bienvenue Ubuntu pour tester sans installer ?', options: ['Installer Ubuntu', 'Essayer Ubuntu', 'Réparer Ubuntu', 'Mettre à jour Ubuntu'], correct: 1, explanation: '"Essayer Ubuntu" démarre Ubuntu en mode live depuis la clé USB, sans toucher à votre disque dur. Parfait pour tester.' },
+          { id: 'dc03-q3', question: 'Pourquoi Ubuntu est-il plus lent en mode live qu\'installé ?', options: ['Parce que la version live est moins performante', 'Parce que la clé USB est plus lente que le disque dur', 'Parce qu\'Ubuntu a besoin d\'internet pour fonctionner', 'Parce que le mode live active un limiteur de vitesse'], correct: 1, explanation: 'Une clé USB est significativement plus lente qu\'un disque dur ou SSD. Une fois installé sur votre disque, Ubuntu sera bien plus rapide.' },
+        ],
+        prevLesson: 'creer-cle-usb',
+        nextLesson: 'dual-boot',
+      },
     ],
   },
+
+  // ══════════════════════════════════════════════════════════════
+  // MODULE 3 — INSTALLATION
+  // ══════════════════════════════════════════════════════════════
   {
     id: 'installation',
     title: 'Installation',
@@ -317,119 +296,123 @@ export const MODULES: Module[] = [
     lessons: [
       {
         id: 'in-01',
-        slug: 'demarrer-live',
-        title: 'Démarrer sur la clé USB',
-        subtitle: 'Votre première rencontre avec Ubuntu',
-        duration: '12 min',
-        icon: '🚀',
-        intro: 'Votre clé USB est prête. Maintenant, on va démarrer l\'ordinateur dessus pour découvrir Ubuntu pour la première fois — sans rien installer.',
-        sections: [
-          {
-            title: 'Le démarrage : entrer dans le BIOS/UEFI',
-            content: 'Quand vous allumez votre ordinateur, il cherche par défaut à démarrer sur votre disque dur (là où Windows est installé). Pour démarrer sur la clé USB, vous devez lui dire de regarder ailleurs.\n\nPour ça, il faut appuyer sur une touche spéciale au tout début du démarrage — avant même que Windows n\'apparaisse.',
-            tip: 'La touche à appuyer dépend de votre marque : F12 (Dell, Lenovo), F9 (HP), F8 ou Échap (Asus). Regardez l\'écran noir au démarrage — la touche est souvent indiquée en bas.',
-            steps: [
-              'Branchez la clé USB Ubuntu sur votre ordinateur',
-              'Éteignez complètement l\'ordinateur (pas de veille)',
-              'Rallumez-le et appuyez immédiatement sur F12 (ou la touche de votre marque)',
-              'Un menu apparaît — choisissez votre clé USB dans la liste',
-              'Appuyez sur Entrée',
-            ],
-          },
-          {
-            title: 'Bienvenue dans Ubuntu !',
-            content: 'Après quelques secondes, le bureau Ubuntu apparaît. Vous y êtes ! Vous utilisez Ubuntu sans avoir rien installé.\n\nPrenez le temps d\'explorer : le bureau, le menu des applications, les paramètres. Testez Firefox, ouvrez LibreOffice, connectez-vous à votre Wi-Fi.\n\nC\'est exactement ce que vous aurez si vous installez Ubuntu — en plus rapide, car votre disque dur est plus rapide qu\'une clé USB.',
-            tip: 'Si l\'ordinateur démarre sur Windows comme d\'habitude, réessayez en appuyant plus tôt et plus fermement sur la touche du menu de démarrage.',
-          },
-        ],
-        quiz: [
-          {
-            id: 'in01-q1',
-            question: 'Pourquoi faut-il appuyer sur F12 (ou une autre touche) au démarrage ?',
-            options: [
-              'Pour activer Ubuntu',
-              'Pour dire à l\'ordinateur de démarrer sur la clé USB plutôt que sur le disque dur',
-              'Pour effacer Windows',
-              'Pour accélérer le démarrage',
-            ],
-            correct: 1,
-            explanation: 'Par défaut, l\'ordinateur démarre sur le disque dur (Windows). Appuyer sur F12 ouvre le menu de sélection du périphérique de démarrage, ce qui permet de choisir la clé USB.',
-          },
-        ],
-        prevLesson: 'creer-cle-usb',
-        nextLesson: 'dual-boot',
-      },
-      {
-        id: 'in-02',
         slug: 'dual-boot',
         title: 'Le dual boot',
         subtitle: 'Ubuntu ET Windows sur le même PC',
         duration: '20 min',
         icon: '🔀',
-        intro: 'Vous avez testé Ubuntu et vous l\'aimez bien — mais vous n\'êtes pas encore prêt à abandonner Windows complètement. Bonne nouvelle : vous pouvez garder les deux !',
+        intro: 'Vous avez testé Ubuntu et vous l\'aimez bien — mais vous n\'êtes pas encore prêt à abandonner Windows complètement. Bonne nouvelle : vous pouvez garder les deux sur le même ordinateur !',
         sections: [
           {
             title: 'C\'est quoi le dual boot ?',
             content: 'Le dual boot consiste à installer Ubuntu sur votre disque dur à côté de Windows. Au démarrage, un menu apparaît et vous demande lequel vous voulez utiliser ce jour-là.\n\nC\'est la solution idéale pour les gens qui veulent migrer progressivement — on garde Windows "au cas où" et on utilise Ubuntu de plus en plus.',
             tip: 'La plupart des gens qui font le dual boot finissent par démarrer Ubuntu 90% du temps et oublient que Windows est là.',
+            screenshot: 'Écran GRUB au démarrage avec les deux options Ubuntu et Windows',
           },
           {
             title: 'Avant de commencer : sauvegardez !',
             content: 'Avant toute installation, une règle absolue : sauvegardez vos données importantes.\n\nCopiez vos documents, photos, vidéos sur un disque externe ou un service cloud (Google Drive, OneDrive). Pas parce que ça va forcément mal se passer — mais parce qu\'une sauvegarde est toujours une bonne idée.',
-            warning: 'NE SAUTEZ PAS cette étape. Même si l\'installation se passe à 99,9% sans problème, la sauvegarde préalable est une règle de base en informatique.',
-            steps: [
-              'Copiez vos documents importants sur un disque externe',
-              'Vérifiez que vous avez bien accès à vos photos',
-              'Notez vos mots de passe importants',
-              'Seulement ensuite, passez à l\'installation',
-            ],
+            warning: 'NE SAUTEZ PAS cette étape. Même si l\'installation se passe à 99,9% sans problème, la sauvegarde préalable est une règle absolue en informatique.',
+            steps: ['Copiez vos documents importants sur un disque externe', 'Vérifiez que vous avez bien accès à vos photos', 'Notez vos mots de passe importants', 'Seulement ensuite, passez à l\'installation'],
+            screenshot: 'Capture : copie de fichiers vers un disque externe — barre de progression',
           },
           {
-            title: 'L\'installation en 6 étapes',
-            content: 'Démarrez sur votre clé USB Ubuntu (comme appris dans le chapitre précédent), puis cliquez sur "Installer Ubuntu".',
-            steps: [
-              'Choisissez votre langue : Français',
-              'Choisissez votre clavier : French (ou French - Azerty)',
-              'Type d\'installation : choisissez "Installer Ubuntu à côté de Windows" ← IMPORTANT',
-              'Ajustez la taille des partitions avec le curseur (recommandé : 50% pour chaque)',
-              'Choisissez votre fuseau horaire : Paris',
-              'Créez votre compte (nom, nom d\'utilisateur, mot de passe)',
-              'Cliquez "Installer" et attendez 15-20 minutes',
-            ],
-            tip: 'L\'option "Installer Ubuntu à côté de Windows" est la clé. Ubuntu s\'occupe automatiquement de redimensionner la partition Windows pour faire de la place.',
+            title: 'L\'installation pas à pas',
+            content: 'Démarrez sur votre clé USB Ubuntu (comme appris dans le chapitre précédent), puis cliquez sur "Installer Ubuntu" sur le bureau.',
+            steps: ['Choisissez votre langue : Français', 'Choisissez votre clavier : French (Azerty)', 'Connexion réseau : connectez-vous à votre Wi-Fi', 'Type d\'installation : sélectionnez "Installer Ubuntu à côté de Windows" ← CRUCIAL', 'Ajustez la taille des partitions avec le curseur (50% recommandé pour chaque)', 'Choisissez votre fuseau horaire : Paris', 'Créez votre compte : nom, nom d\'utilisateur, mot de passe', 'Cliquez "Installer" et attendez 15-20 minutes', 'Redémarrez quand demandé — retirez la clé USB'],
+            tip: 'L\'option "Installer Ubuntu à côté de Windows" est la clé. Ubuntu s\'occupe automatiquement de redimensionner la partition Windows.',
+            screenshot: 'Capture de l\'installeur Ubuntu : option "Installer à côté de Windows" sélectionnée',
           },
         ],
         quiz: [
-          {
-            id: 'in02-q1',
-            question: 'Qu\'est-ce que le dual boot ?',
-            options: [
-              'Un ordinateur avec deux écrans',
-              'Ubuntu et Windows installés sur le même PC, avec un menu de choix au démarrage',
-              'Démarrer l\'ordinateur deux fois de suite',
-              'Un type de clé USB spéciale',
-            ],
-            correct: 1,
-            explanation: 'Le dual boot permet d\'avoir Ubuntu et Windows sur le même disque dur. Un menu apparaît à chaque démarrage pour choisir lequel utiliser.',
-          },
-          {
-            id: 'in02-q2',
-            question: 'Quelle est la première chose à faire AVANT d\'installer Ubuntu en dual boot ?',
-            options: [
-              'Désinstaller tous ses programmes Windows',
-              'Acheter un nouveau disque dur',
-              'Sauvegarder ses données importantes',
-              'Appeler son fournisseur internet',
-            ],
-            correct: 2,
-            explanation: 'Avant toute installation, sauvegardez vos données importantes sur un disque externe ou dans le cloud. C\'est une règle absolue en informatique.',
-          },
+          { id: 'in01-q1', question: 'Qu\'est-ce que le dual boot ?', options: ['Un ordinateur avec deux écrans', 'Ubuntu et Windows installés sur le même PC, avec un menu de choix au démarrage', 'Démarrer l\'ordinateur deux fois de suite', 'Un type de clé USB spéciale'], correct: 1, explanation: 'Le dual boot permet d\'avoir Ubuntu et Windows sur le même disque dur. Un menu apparaît à chaque démarrage pour choisir lequel utiliser.' },
+          { id: 'in01-q2', question: 'Quelle est la première chose à faire AVANT d\'installer Ubuntu en dual boot ?', options: ['Désinstaller tous ses programmes Windows', 'Acheter un nouveau disque dur', 'Sauvegarder ses données importantes', 'Appeler son fournisseur internet'], correct: 2, explanation: 'Avant toute installation, sauvegardez vos données importantes sur un disque externe ou dans le cloud.' },
+          { id: 'in01-q3', question: 'Quelle option choisir dans l\'installeur pour garder Windows intact ?', options: ['"Effacer le disque et installer Ubuntu"', '"Installer Ubuntu à côté de Windows"', '"Mettre à jour Ubuntu"', '"Installation minimale"'], correct: 1, explanation: '"Installer Ubuntu à côté de Windows" est l\'option du dual boot. Elle redimensionne automatiquement la partition Windows pour faire de la place à Ubuntu.' },
         ],
         prevLesson: 'demarrer-live',
+        nextLesson: 'mono-boot',
+      },
+      {
+        id: 'in-02',
+        slug: 'mono-boot',
+        title: 'Le mono boot',
+        subtitle: 'Ubuntu seul, toute la place pour lui',
+        duration: '15 min',
+        icon: '🎯',
+        intro: 'Vous êtes convaincu, vous n\'avez plus besoin de Windows, ou vous avez un vieux PC que vous voulez entièrement dédier à Ubuntu. Le mono boot est la solution : Ubuntu seul, avec tout le disque pour lui.',
+        sections: [
+          {
+            title: 'Quand choisir le mono boot ?',
+            content: 'Le mono boot (Ubuntu seul) est idéal dans ces situations :\n• Vous avez un vieux PC que vous voulez ressusciter\n• Vous n\'utilisez plus Windows du tout\n• Vous voulez les meilleures performances possibles\n• Vous offrez un PC à un senior et vous voulez la simplicité totale\n\nAttention : cette option efface Windows et toutes vos données. La sauvegarde est OBLIGATOIRE.',
+            warning: 'Le mono boot efface entièrement votre disque dur. Windows et toutes vos données seront supprimés définitivement. Sauvegardez TOUT avant.',
+            screenshot: 'Schéma : disque dur entier dédié à Ubuntu vs disque partagé (dual boot)',
+          },
+          {
+            title: 'L\'installation en mono boot',
+            content: 'La procédure est identique au dual boot jusqu\'à l\'étape du choix du type d\'installation. C\'est là que ça change.',
+            steps: ['Démarrez sur votre clé USB Ubuntu', 'Cliquez "Installer Ubuntu" sur le bureau', 'Choisissez la langue et le clavier', 'À "Type d\'installation", choisissez "Effacer le disque et installer Ubuntu"', 'Confirmez : oui, vous êtes sûr (c\'est irréversible)', 'Choisissez le fuseau horaire : Paris', 'Créez votre compte utilisateur', 'Attendez 15-20 minutes', 'Redémarrez et retirez la clé USB'],
+            tip: 'Sur un SSD, Ubuntu s\'installe en moins de 10 minutes. Sur un vieux disque dur, comptez 20-30 minutes.',
+            screenshot: 'Capture installeur Ubuntu : option "Effacer le disque" avec avertissement rouge',
+          },
+          {
+            title: 'Après l\'installation : les premiers réglages',
+            content: 'Une fois Ubuntu installé et démarré, quelques réglages de base s\'imposent :\n• Connectez-vous à votre Wi-Fi\n• Lancez les mises à jour (Logithèque → Mises à jour)\n• Réglez la langue et le clavier si nécessaire\n• Activez la sauvegarde automatique\n\nCes étapes sont détaillées dans les chapitres suivants.',
+            tip: 'Ubuntu vous proposera probablement des mises à jour dès le premier démarrage. Installez-les — elles sont importantes pour la sécurité.',
+            screenshot: 'Premier démarrage Ubuntu installé — assistant de bienvenue',
+          },
+        ],
+        quiz: [
+          { id: 'in02-q1', question: 'Dans quelle situation le mono boot est-il le meilleur choix ?', options: ['Quand on veut garder Windows', 'Quand on a un vieux PC à ressusciter ou qu\'on n\'utilise plus Windows', 'Quand on a peu d\'espace disque', 'Quand on est débutant'], correct: 1, explanation: 'Le mono boot est idéal pour ressusciter un vieux PC, ou quand on n\'utilise plus Windows et veut les meilleures performances.' },
+          { id: 'in02-q2', question: 'Quelle option choisir dans l\'installeur pour le mono boot ?', options: ['"Installer à côté de Windows"', '"Installation minimale"', '"Effacer le disque et installer Ubuntu"', '"Mettre à jour"'], correct: 2, explanation: '"Effacer le disque et installer Ubuntu" supprime tout et dédie l\'intégralité du disque à Ubuntu.' },
+          { id: 'in02-q3', question: 'Peut-on récupérer ses données Windows après un mono boot ?', options: ['Oui, elles sont dans la corbeille', 'Oui, avec un logiciel spécial', 'Non, les données sont effacées définitivement', 'Oui, elles sont dans le cloud automatiquement'], correct: 2, explanation: 'Le mono boot efface définitivement le disque. Il est impossible de récupérer Windows ou les données sans sauvegarde préalable.' },
+        ],
+        prevLesson: 'dual-boot',
+        nextLesson: 'post-installation',
+      },
+      {
+        id: 'in-03',
+        slug: 'post-installation',
+        title: 'Après l\'installation',
+        subtitle: 'Les réglages essentiels pour bien démarrer',
+        duration: '15 min',
+        icon: '✅',
+        intro: 'Ubuntu est installé, vous êtes sur le bureau pour la première fois. Félicitations ! Maintenant, quelques réglages importants vont vous permettre de partir sur de bonnes bases.',
+        sections: [
+          {
+            title: 'Les mises à jour — à faire en premier',
+            content: 'La première chose à faire après l\'installation est de mettre Ubuntu à jour. Même si vous venez juste de l\'installer, des mises à jour de sécurité sont probablement disponibles.',
+            steps: ['Appuyez sur la touche Super (Windows) et tapez "Logithèque"', 'Ouvrez la Logithèque Ubuntu', 'Cliquez sur "Mises à jour"', 'Cliquez "Mettre à jour" sur toutes les mises à jour disponibles', 'Entrez votre mot de passe si demandé', 'Redémarrez si une mise à jour du noyau est installée'],
+            tip: 'Vous pouvez aussi faire les mises à jour via le Terminal : sudo apt update && sudo apt upgrade -y',
+            screenshot: 'Capture de la Logithèque Ubuntu avec l\'onglet Mises à jour',
+          },
+          {
+            title: 'Régler la langue et le clavier',
+            content: 'Si votre clavier ou vos menus ne sont pas en français, voici comment corriger ça.',
+            steps: ['Ouvrez les Paramètres (icône engrenage en haut à droite)', 'Allez dans "Région et langue"', 'Cliquez "Gérer les langues installées"', 'Ajoutez le français si absent', 'Dans "Format", choisissez France', 'Sous "Saisie au clavier", vérifiez que "Français (Azerty)" est présent'],
+            screenshot: 'Capture des Paramètres Ubuntu → Région et langue',
+          },
+          {
+            title: 'Activer la sauvegarde automatique',
+            content: 'Ubuntu inclut un outil de sauvegarde automatique appelé Déjà Dup. Il peut sauvegarder vos fichiers régulièrement vers un disque externe ou Google Drive.',
+            steps: ['Appuyez sur Super et tapez "Sauvegardes"', 'Ouvrez l\'application "Sauvegardes"', 'Choisissez où sauvegarder (disque externe recommandé)', 'Choisissez ce que vous voulez sauvegarder (Documents, Photos...)', 'Activez les sauvegardes automatiques', 'Faites une première sauvegarde manuelle'],
+            tip: 'Une sauvegarde hebdomadaire automatique est un minimum. Un disque externe de 500 Go coûte moins de 50€ et peut vous sauver la mise.',
+            screenshot: 'Capture de l\'application Sauvegardes (Déjà Dup) Ubuntu',
+          },
+        ],
+        quiz: [
+          { id: 'in03-q1', question: 'Quelle est la première chose à faire après avoir installé Ubuntu ?', options: ['Installer des jeux', 'Faire les mises à jour', 'Changer le fond d\'écran', 'Désinstaller Firefox'], correct: 1, explanation: 'Les mises à jour de sécurité sont prioritaires après l\'installation. Elles corrigent des failles découvertes depuis la création de l\'image d\'installation.' },
+          { id: 'in03-q2', question: 'Quel outil Ubuntu inclut pour les sauvegardes automatiques ?', options: ['Time Machine', 'Déjà Dup', 'Backup Pro', 'WinBackup'], correct: 1, explanation: 'Déjà Dup est l\'outil de sauvegarde automatique intégré à Ubuntu. Il est simple à configurer et peut sauvegarder vers un disque externe ou le cloud.' },
+          { id: 'in03-q3', question: 'Où trouver les paramètres de langue sous Ubuntu ?', options: ['Dans Firefox', 'Dans LibreOffice', 'Dans Paramètres → Région et langue', 'Dans le Terminal'], correct: 2, explanation: 'Les paramètres de langue et clavier se trouvent dans Paramètres (icône engrenage) → Région et langue.' },
+        ],
+        prevLesson: 'mono-boot',
         nextLesson: 'premiers-pas',
       },
     ],
   },
+
+  // ══════════════════════════════════════════════════════════════
+  // MODULE 4 — VIE QUOTIDIENNE
+  // ══════════════════════════════════════════════════════════════
   {
     id: 'vie-quotidienne',
     title: 'Vie quotidienne',
@@ -447,98 +430,541 @@ export const MODULES: Module[] = [
         intro: 'Ubuntu est installé et vous êtes sur le bureau. Bienvenue chez vous ! On va découvrir ensemble les repères essentiels pour vous sentir à l\'aise.',
         sections: [
           {
-            title: 'Le bureau Ubuntu (GNOME)',
-            content: 'Le bureau d\'Ubuntu s\'appelle GNOME. Il est conçu pour être épuré et efficace.\n\nEn haut : la barre de statut (heure, Wi-Fi, volume, compte).\nEn bas (ou à gauche selon la version) : le dock avec vos applications favorites.\nAu centre : votre espace de travail, vide et propre.',
-            tip: 'Appuyez sur la touche "Super" (la touche Windows de votre clavier) pour ouvrir la vue d\'ensemble — vous verrez toutes vos applications ouvertes et pourrez en lancer de nouvelles.',
+            title: 'Le bureau GNOME expliqué',
+            content: 'Le bureau d\'Ubuntu s\'appelle GNOME. Il est conçu pour être épuré et efficace.\n\nEn haut au centre : la barre de titre avec l\'horloge, les notifications, le Wi-Fi, le volume et le compte utilisateur.\nEn bas : le dock avec vos applications favorites (Firefox, Fichiers, Logithèque...).\nAu centre : votre espace de travail, propre et sans icônes encombrantes.',
+            tip: 'Appuyez sur la touche Super (la touche Windows de votre clavier) pour ouvrir la vue d\'ensemble — vous verrez toutes vos applications ouvertes et pourrez en lancer de nouvelles.',
+            screenshot: 'Bureau Ubuntu 24.04 annoté : barre du haut, dock, espace de travail',
           },
           {
-            title: 'Trouver ses applications',
-            content: 'Cliquez sur les 9 points en bas du dock (ou appuyez sur Super) pour voir toutes vos applications installées.\n\nVous y trouverez Firefox pour naviguer, LibreOffice Writer pour écrire, Rhythmbox pour la musique, Shotwell pour les photos, et bien d\'autres.',
+            title: 'Trouver et lancer des applications',
+            content: 'Il y a trois façons de lancer une application sous Ubuntu :\n\n1. Cliquer sur son icône dans le dock (barre en bas)\n2. Appuyer sur Super et taper le nom de l\'application — elle apparaît instantanément\n3. Cliquer sur les 9 points (grille) en bas du dock pour voir toutes les applications\n\nLa méthode 2 (Super + taper) est de loin la plus rapide une fois qu\'on en a l\'habitude.',
+            steps: ['Appuyez sur la touche Super', 'Tapez "Firefox"', 'Appuyez sur Entrée — Firefox s\'ouvre', 'Appuyez sur Super à nouveau', 'Tapez "Fichiers" — votre gestionnaire de fichiers s\'ouvre'],
+            screenshot: 'Capture de la recherche Ubuntu : touche Super appuyée, "Firefox" tapé',
           },
           {
             title: 'Les équivalents de vos logiciels habituels',
-            content: 'Vous avez l\'habitude de Windows ? Voici les équivalents Ubuntu :\n\n• Word → LibreOffice Writer\n• Excel → LibreOffice Calc\n• PowerPoint → LibreOffice Impress\n• Internet Explorer/Edge → Firefox (ou installez Chrome)\n• Windows Media Player → Rhythmbox ou VLC\n• Paint → GIMP (bien plus puissant)\n• Explorateur de fichiers → Nautilus (Fichiers)',
+            content: 'Vous avez l\'habitude de Windows ? Voici les équivalents Ubuntu :\n\n• Word → LibreOffice Writer\n• Excel → LibreOffice Calc\n• PowerPoint → LibreOffice Impress\n• Internet Explorer/Edge → Firefox (ou Chrome)\n• Windows Media Player → Rhythmbox ou VLC\n• Paint → GIMP (bien plus puissant)\n• Explorateur Windows → Nautilus (Fichiers)\n• Bloc-notes → Gedit\n• Outlook → Thunderbird',
             tip: 'LibreOffice ouvre et enregistre parfaitement les fichiers Word, Excel et PowerPoint. Vos documents restent compatibles avec vos collègues sous Windows.',
+            screenshot: 'Tableau comparatif côte à côte : icônes Windows vs icônes Ubuntu',
           },
         ],
         quiz: [
-          {
-            id: 'vq01-q1',
-            question: 'Comment s\'appelle le bureau d\'Ubuntu ?',
-            options: ['Finder', 'Explorer', 'GNOME', 'Unity'],
-            correct: 2,
-            explanation: 'Le bureau d\'Ubuntu s\'appelle GNOME. C\'est l\'environnement de bureau par défaut d\'Ubuntu depuis plusieurs années.',
-          },
-          {
-            id: 'vq01-q2',
-            question: 'Quel logiciel Ubuntu remplace Microsoft Word ?',
-            options: ['OpenOffice', 'LibreOffice Writer', 'Google Docs', 'Notepad'],
-            correct: 1,
-            explanation: 'LibreOffice Writer est l\'équivalent de Microsoft Word sous Ubuntu. Il est gratuit, puissant et compatible avec les fichiers .docx.',
-          },
+          { id: 'vq01-q1', question: 'Comment s\'appelle le bureau d\'Ubuntu ?', options: ['Finder', 'Explorer', 'GNOME', 'Unity'], correct: 2, explanation: 'Le bureau d\'Ubuntu s\'appelle GNOME. C\'est l\'environnement de bureau par défaut d\'Ubuntu depuis plusieurs années.' },
+          { id: 'vq01-q2', question: 'Quel est le raccourci le plus rapide pour lancer une application ?', options: ['Ctrl+Alt+Suppr', 'Clic droit sur le bureau', 'Touche Super puis taper le nom', 'Double-clic sur le bureau'], correct: 2, explanation: 'Appuyer sur la touche Super (anciennement "touche Windows") puis taper le nom de l\'application est la façon la plus rapide de lancer n\'importe quelle application.' },
+          { id: 'vq01-q3', question: 'Quel logiciel Ubuntu remplace Microsoft Word ?', options: ['OpenOffice', 'LibreOffice Writer', 'Google Docs', 'Notepad'], correct: 1, explanation: 'LibreOffice Writer est l\'équivalent de Microsoft Word sous Ubuntu. Il est gratuit, puissant et compatible avec les fichiers .docx.' },
         ],
-        prevLesson: 'dual-boot',
-        nextLesson: 'installer-applications',
+        prevLesson: 'post-installation',
+        nextLesson: 'internet-et-navigation',
       },
       {
         id: 'vq-02',
+        slug: 'internet-et-navigation',
+        title: 'Internet et navigation',
+        subtitle: 'Firefox, Chrome et la vie en ligne',
+        duration: '10 min',
+        icon: '🌐',
+        intro: 'Naviguer sur internet sous Ubuntu fonctionne exactement comme sous Windows — avec les mêmes sites, les mêmes services, les mêmes favoris. Voici comment vous y retrouver.',
+        sections: [
+          {
+            title: 'Firefox : déjà installé et prêt',
+            content: 'Ubuntu est livré avec Firefox pré-installé. C\'est un navigateur complet, rapide, respectueux de votre vie privée et parfaitement compatible avec tous les sites web.\n\nVous retrouverez exactement les mêmes sites qu\'avant : Gmail, YouTube, Amazon, impôts.gouv.fr, votre banque... Tout fonctionne.',
+            tip: 'Pour synchroniser vos favoris Firefox depuis Windows, créez un compte Firefox (gratuit) et activez la synchronisation sur vos deux machines.',
+            screenshot: 'Firefox ouvert sur Ubuntu avec Gmail affiché — identique à Windows',
+          },
+          {
+            title: 'Installer Google Chrome',
+            content: 'Vous préférez Chrome ? Il n\'est pas installé par défaut mais s\'installe facilement.',
+            steps: ['Ouvrez Firefox', 'Allez sur google.com/chrome', 'Cliquez "Télécharger Chrome"', 'Choisissez "64 bits .deb (Debian/Ubuntu)"', 'Ouvrez le fichier téléchargé', 'Cliquez "Installer" dans la Logithèque', 'Chrome est installé !'],
+            tip: 'Une fois Chrome installé, il se met à jour automatiquement comme sous Windows.',
+            screenshot: 'Capture du site google.com/chrome avec l\'option .deb Ubuntu sélectionnée',
+          },
+          {
+            title: 'Vos services cloud fonctionnent tous',
+            content: 'Tous vos services en ligne fonctionnent parfaitement sous Ubuntu :\n\n• Google Drive, Gmail, Google Photos — via le navigateur ou l\'application\n• Microsoft 365 — via le navigateur (office.com)\n• Netflix, YouTube, Spotify — via le navigateur ou l\'application\n• Votre banque — via le navigateur\n• Les impôts, CAF, Ameli — tout fonctionne\n\nLinux n\'est pas une barrière pour internet. Tout ce qui fonctionne dans un navigateur fonctionne sous Ubuntu.',
+            screenshot: 'Navigateur Ubuntu affichant Netflix, Gmail et le site des impôts',
+          },
+        ],
+        quiz: [
+          { id: 'vq02-q1', question: 'Quel navigateur est installé par défaut sur Ubuntu ?', options: ['Chrome', 'Safari', 'Firefox', 'Edge'], correct: 2, explanation: 'Firefox est le navigateur installé par défaut sur Ubuntu. Il est complet, rapide et respectueux de la vie privée.' },
+          { id: 'vq02-q2', question: 'Votre compte Gmail fonctionne-t-il sous Ubuntu ?', options: ['Non, Gmail ne fonctionne que sous Windows', 'Oui, via Firefox ou Chrome comme d\'habitude', 'Oui, mais avec des fonctionnalités réduites', 'Seulement avec une application spéciale'], correct: 1, explanation: 'Gmail fonctionne parfaitement sous Ubuntu via n\'importe quel navigateur, exactement comme sous Windows.' },
+          { id: 'vq02-q3', question: 'Comment installer Chrome sous Ubuntu ?', options: ['Il est impossible d\'installer Chrome sur Linux', 'Via le site google.com/chrome en téléchargeant le fichier .deb', 'En appelant Google', 'Chrome est déjà installé par défaut'], correct: 1, explanation: 'Chrome propose un fichier .deb sur son site officiel, spécialement pour Ubuntu/Debian. Il s\'installe en quelques clics.' },
+        ],
+        prevLesson: 'premiers-pas',
+        nextLesson: 'bureautique',
+      },
+      {
+        id: 'vq-03',
+        slug: 'bureautique',
+        title: 'Bureautique avec LibreOffice',
+        subtitle: 'Écrire, calculer, présenter — gratuitement',
+        duration: '12 min',
+        icon: '📄',
+        intro: 'LibreOffice est la suite bureautique gratuite et libre qui remplace Microsoft Office. Elle fait tout ce que fait Office — et ouvre vos anciens fichiers Word, Excel et PowerPoint sans problème.',
+        sections: [
+          {
+            title: 'LibreOffice : la suite complète',
+            content: 'LibreOffice comprend six applications :\n\n• Writer — traitement de texte (= Word)\n• Calc — tableur (= Excel)\n• Impress — présentations (= PowerPoint)\n• Draw — dessin vectoriel (= Visio)\n• Base — base de données (= Access)\n• Math — éditeur de formules mathématiques\n\nToutes sont gratuites, open source, et disponibles aussi sous Windows et Mac — pratique pour partager des fichiers.',
+            tip: 'LibreOffice peut ouvrir et enregistrer dans le format Word (.docx), Excel (.xlsx) et PowerPoint (.pptx). Vos collègues sous Office ne verront pas la différence.',
+            screenshot: 'Capture LibreOffice Writer avec un document ouvert — interface proche de Word',
+          },
+          {
+            title: 'Ouvrir vos anciens fichiers',
+            content: 'Vos anciens fichiers Word, Excel et PowerPoint s\'ouvrent directement dans LibreOffice. Double-cliquez dessus et LibreOffice s\'ouvre automatiquement avec le bon programme.',
+            steps: ['Ouvrez votre gestionnaire de fichiers (Fichiers)', 'Naviguez jusqu\'à votre document Word (.docx)', 'Double-cliquez dessus', 'LibreOffice Writer s\'ouvre avec votre document', 'Pour enregistrer au format Word : Fichier → Enregistrer sous → Format Word 2007-365'],
+            tip: 'Pour enregistrer par défaut en format Word/Excel, allez dans Outils → Options → Chargement/Enregistrement → Général → et choisissez le format Microsoft Office.',
+            screenshot: 'LibreOffice Calc avec un fichier .xlsx ouvert — données préservées',
+          },
+          {
+            title: 'Microsoft 365 en ligne',
+            content: 'Si vous avez un abonnement Microsoft 365 ou si vous avez besoin de la version exacte de Word/Excel, sachez que Microsoft propose office.com — la version en ligne gratuite de Word, Excel et PowerPoint — qui fonctionne parfaitement dans Firefox ou Chrome sous Ubuntu.',
+            screenshot: 'Capture de office.com dans Firefox sur Ubuntu — Word en ligne fonctionnel',
+          },
+        ],
+        quiz: [
+          { id: 'vq03-q1', question: 'Quel programme LibreOffice remplace Microsoft Word ?', options: ['LibreOffice Calc', 'LibreOffice Writer', 'LibreOffice Draw', 'LibreOffice Base'], correct: 1, explanation: 'LibreOffice Writer est le traitement de texte de LibreOffice, équivalent direct de Microsoft Word.' },
+          { id: 'vq03-q2', question: 'LibreOffice peut-il ouvrir des fichiers .docx (format Word) ?', options: ['Non, les formats sont incompatibles', 'Oui, mais avec des mises en forme incorrectes', 'Oui, et il peut aussi enregistrer en .docx', 'Seulement les vieux fichiers .doc'], correct: 2, explanation: 'LibreOffice ouvre et enregistre parfaitement les fichiers .docx, .xlsx et .pptx. La compatibilité avec Microsoft Office est excellente.' },
+          { id: 'vq03-q3', question: 'Comment utiliser Microsoft Word sous Ubuntu si on en a besoin ?', options: ['C\'est impossible', 'En installant Windows en parallèle', 'Via office.com dans Firefox ou Chrome', 'En achetant une licence spéciale Linux'], correct: 2, explanation: 'office.com propose Word, Excel et PowerPoint en ligne, gratuitement, et fonctionne parfaitement dans n\'importe quel navigateur sous Ubuntu.' },
+        ],
+        prevLesson: 'internet-et-navigation',
+        nextLesson: 'multimedia',
+      },
+      {
+        id: 'vq-04',
+        slug: 'multimedia',
+        title: 'Musique, vidéos et photos',
+        subtitle: 'Tout votre multimédia sous Ubuntu',
+        duration: '10 min',
+        icon: '🎵',
+        intro: 'Écouter de la musique, regarder des vidéos, gérer vos photos — Ubuntu gère tout ça très bien. Voici les applications à connaître.',
+        sections: [
+          {
+            title: 'La musique avec Rhythmbox et Spotify',
+            content: 'Ubuntu est livré avec Rhythmbox, un lecteur de musique complet pour vos MP3 et autres fichiers audio locaux. Il ressemble à l\'ancienne version d\'iTunes.\n\nPour Spotify, l\'application officielle existe sous Linux et s\'installe en un clic depuis la Logithèque. Votre bibliothèque, vos playlists, tout est là.',
+            steps: ['Ouvrez la Logithèque Ubuntu', 'Cherchez "Spotify"', 'Cliquez "Installer"', 'Connectez-vous avec votre compte Spotify', 'Votre bibliothèque est disponible'],
+            screenshot: 'Spotify installé sur Ubuntu — interface identique à Windows',
+          },
+          {
+            title: 'Les vidéos avec VLC',
+            content: 'VLC est le lecteur vidéo universel — il lit absolument tous les formats (MP4, MKV, AVI, MOV...) sans avoir besoin de codecs supplémentaires. Il est disponible dans la Logithèque.\n\nPour YouTube, Netflix, Amazon Prime — tout fonctionne directement dans Firefox ou Chrome, exactement comme sous Windows.',
+            tip: 'VLC peut aussi lire des DVD, des fichiers audio, des flux radio internet et des streams. C\'est le couteau suisse du multimédia.',
+            screenshot: 'VLC sur Ubuntu lisant un film MKV — interface familière',
+          },
+          {
+            title: 'Les photos avec Shotwell',
+            content: 'Shotwell est le gestionnaire de photos installé par défaut sur Ubuntu. Il permet d\'importer vos photos depuis un appareil photo ou un smartphone, de les organiser, et d\'y appliquer des retouches basiques (luminosité, contraste, recadrage).\n\nPour des retouches avancées, GIMP est l\'équivalent (gratuit et puissant) de Photoshop.',
+            steps: ['Branchez votre appareil photo ou smartphone', 'Shotwell s\'ouvre automatiquement', 'Cliquez "Importer"', 'Vos photos sont organisées par date'],
+            screenshot: 'Shotwell sur Ubuntu avec une galerie de photos organisée par dates',
+          },
+        ],
+        quiz: [
+          { id: 'vq04-q1', question: 'Quelle application permet d\'écouter Spotify sous Ubuntu ?', options: ['Spotify n\'existe pas sous Linux', 'L\'application officielle Spotify, disponible dans la Logithèque', 'Uniquement via le navigateur', 'iTunes'], correct: 1, explanation: 'Spotify propose une application officielle pour Linux (Ubuntu), disponible directement dans la Logithèque Ubuntu.' },
+          { id: 'vq04-q2', question: 'Quel lecteur vidéo est recommandé sous Ubuntu pour lire tous les formats ?', options: ['Windows Media Player', 'QuickTime', 'VLC', 'RealPlayer'], correct: 2, explanation: 'VLC est le lecteur universel qui lit absolument tous les formats vidéo et audio sans avoir besoin de codecs supplémentaires.' },
+          { id: 'vq04-q3', question: 'Netflix fonctionne-t-il sous Ubuntu ?', options: ['Non, Netflix bloque Linux', 'Oui, via Firefox ou Chrome comme sous Windows', 'Oui, mais uniquement en définition standard', 'Seulement avec une application payante'], correct: 1, explanation: 'Netflix fonctionne parfaitement dans Firefox et Chrome sous Ubuntu. Vous pouvez regarder en HD et 4K.' },
+        ],
+        prevLesson: 'bureautique',
+        nextLesson: 'imprimante',
+      },
+      {
+        id: 'vq-05',
+        slug: 'imprimante',
+        title: 'Connecter une imprimante',
+        subtitle: 'Imprimer sous Ubuntu, c\'est souvent automatique',
+        duration: '10 min',
+        icon: '🖨️',
+        intro: 'La bonne nouvelle : la grande majorité des imprimantes fonctionnent sous Ubuntu sans aucune installation de pilote. Branchez, et ça marche. Voici comment gérer les cas plus récalcitrants.',
+        sections: [
+          {
+            title: 'Connexion automatique (la plupart des cas)',
+            content: 'Ubuntu reconnaît automatiquement la plupart des imprimantes — HP, Canon, Epson, Brother, Samsung. Il suffit de la brancher (USB) ou qu\'elle soit sur le même réseau Wi-Fi.',
+            steps: ['Branchez votre imprimante en USB OU assurez-vous qu\'elle est sur le même Wi-Fi', 'Ubuntu la détecte automatiquement en quelques secondes', 'Un message peut apparaître pour confirmer l\'installation du pilote', 'Ouvrez un document et faites Fichier → Imprimer', 'Votre imprimante apparaît dans la liste'],
+            tip: 'Si votre imprimante est réseau/Wi-Fi, assurez-vous qu\'elle est allumée et sur le même réseau Wi-Fi que votre ordinateur.',
+            screenshot: 'Dialogue d\'impression Ubuntu avec une imprimante HP détectée',
+          },
+          {
+            title: 'Installation manuelle d\'un pilote',
+            content: 'Si votre imprimante n\'est pas reconnue automatiquement, voici la procédure.',
+            steps: ['Ouvrez Paramètres → Imprimantes', 'Cliquez "Ajouter une imprimante"', 'Ubuntu cherche automatiquement', 'Si trouvée : cliquez dessus et "Ajouter"', 'Si non trouvée : allez sur le site du fabricant et cherchez "Linux driver" ou "Ubuntu driver"'],
+            tip: 'Les imprimantes HP sont les mieux supportées sous Linux grâce au projet HPLIP (inclus dans Ubuntu).',
+            screenshot: 'Paramètres Ubuntu → Imprimantes → bouton "Ajouter"',
+          },
+          {
+            title: 'Imprimantes Wi-Fi : la solution universelle',
+            content: 'Si votre imprimante est Wi-Fi et n\'est pas reconnue, essayez le protocole IPP/CUPS :\n\nConnaissez l\'adresse IP de votre imprimante (affichée sur son écran ou dans vos paramètres Wi-Fi), puis ajoutez-la manuellement dans Paramètres → Imprimantes → Ajouter → Adresse IP.',
+            screenshot: 'Ajout manuel d\'une imprimante par adresse IP dans Ubuntu',
+          },
+        ],
+        quiz: [
+          { id: 'vq05-q1', question: 'La plupart des imprimantes fonctionnent-elles automatiquement sous Ubuntu ?', options: ['Non, toutes nécessitent un pilote manuel', 'Oui, la grande majorité est reconnue automatiquement', 'Seulement les imprimantes HP', 'Seulement les imprimantes USB, jamais Wi-Fi'], correct: 1, explanation: 'Ubuntu inclut des milliers de pilotes d\'imprimantes. La grande majorité des marques (HP, Canon, Epson, Brother) sont reconnues automatiquement.' },
+          { id: 'vq05-q2', question: 'Où gérer les imprimantes sous Ubuntu ?', options: ['Dans Firefox', 'Dans Paramètres → Imprimantes', 'Dans LibreOffice uniquement', 'Il n\'y a pas de gestion des imprimantes'], correct: 1, explanation: 'La gestion des imprimantes se fait dans Paramètres (icône engrenage) → Imprimantes.' },
+        ],
+        prevLesson: 'multimedia',
+        nextLesson: 'installer-applications',
+      },
+      {
+        id: 'vq-06',
         slug: 'installer-applications',
         title: 'Installer des applications',
-        subtitle: 'La logithèque Ubuntu : votre magasin gratuit',
+        subtitle: 'La Logithèque : votre magasin gratuit et sécurisé',
         duration: '12 min',
         icon: '📦',
-        intro: 'Sous Ubuntu, installer une application ne veut pas dire aller sur un site internet hasardeux et télécharger un .exe. Il y a bien mieux : la Logithèque Ubuntu, votre magasin officiel de logiciels gratuits et sécurisés.',
+        intro: 'Sous Ubuntu, installer une application ne veut pas dire aller sur un site internet hasardeux et télécharger un .exe. Il y a bien mieux : la Logithèque Ubuntu, votre magasin officiel de logiciels gratuits et vérifiés.',
         sections: [
           {
             title: 'La Logithèque Ubuntu',
             content: 'La Logithèque (Ubuntu Software) est l\'équivalent de l\'App Store d\'Apple ou du Google Play Store, mais pour votre ordinateur — et tout est gratuit.\n\nCherchez un logiciel, cliquez sur "Installer", entrez votre mot de passe, et c\'est fait. Pas de pub, pas de barre d\'outils indésirable, pas de virus.',
             tip: 'VLC, GIMP, Inkscape, Audacity, Steam, Spotify — ils sont tous dans la Logithèque, en un clic.',
+            screenshot: 'Capture de la Logithèque Ubuntu avec VLC et Spotify affichés',
+          },
+          {
+            title: 'Installer via le Terminal (la méthode rapide)',
+            content: 'Le Terminal permet d\'installer n\'importe quelle application en une seule commande. C\'est plus rapide que la Logithèque, et c\'est la méthode utilisée dans la plupart des tutoriels.',
+            steps: ['Ouvrez le Terminal (Super → "Terminal")', 'Tapez : sudo apt install nom-du-logiciel', 'Entrez votre mot de passe (il ne s\'affiche pas — c\'est normal)', 'Tapez Y et Entrée pour confirmer', 'L\'application est installée'],
+            tip: 'Exemples : sudo apt install vlc | sudo apt install gimp | sudo apt install audacity',
+            screenshot: 'Terminal Ubuntu avec la commande sudo apt install vlc en cours',
           },
           {
             title: 'Les Snap et les Flatpak',
-            content: 'Vous entendrez parfois parler de "Snap" ou "Flatpak". Ce sont deux formats modernes de paquets logiciels qui s\'installent facilement et de façon sécurisée.\n\nPas besoin de comprendre la différence pour l\'instant — la Logithèque gère tout ça automatiquement pour vous.',
-          },
-          {
-            title: 'Installer via le terminal (quand il le faut)',
-            content: 'Parfois, un tutoriel vous demandera d\'utiliser le Terminal. Pas de panique — c\'est juste une fenêtre texte où on tape des commandes.\n\nLa commande magique : sudo apt install nom-du-logiciel\n\nExemple : sudo apt install vlc installe VLC en quelques secondes.',
-            tip: 'Le Terminal fait peur au début, mais une seule commande suffit pour 90% des installations. Vous n\'êtes pas obligé de l\'utiliser — la Logithèque fait très bien le travail.',
-            steps: [
-              'Ouvrez le Terminal (cherchez "Terminal" dans vos applications)',
-              'Tapez : sudo apt install vlc',
-              'Appuyez sur Entrée',
-              'Entrez votre mot de passe (il ne s\'affiche pas — c\'est normal)',
-              'Tapez Y et Entrée pour confirmer',
-              'VLC est installé !',
-            ],
+            content: 'Vous entendrez parfois parler de "Snap" ou "Flatpak". Ce sont deux formats modernes de paquets logiciels.\n\nSnap est développé par Canonical (l\'entreprise d\'Ubuntu) — la Logithèque les installe automatiquement.\nFlatpak est une alternative communautaire, disponible via Flathub.org.\n\nPas besoin de comprendre la différence pour l\'instant — les deux fonctionnent très bien et s\'installent facilement.',
+            screenshot: 'Logo Snap et logo Flatpak — les deux formats coexistent sous Ubuntu',
           },
         ],
         quiz: [
+          { id: 'vq06-q1', question: 'Comment installer une application simplement sous Ubuntu ?', options: ['Télécharger un .exe sur internet', 'Via la Logithèque Ubuntu', 'Appeler le service technique', 'Acheter un CD'], correct: 1, explanation: 'La Logithèque Ubuntu est le moyen le plus simple et sécurisé d\'installer des applications. Tous les logiciels y sont vérifiés.' },
+          { id: 'vq06-q2', question: 'Que fait la commande "sudo apt install vlc" dans le Terminal ?', options: ['Elle supprime VLC', 'Elle met à jour Ubuntu', 'Elle installe le logiciel VLC', 'Elle redémarre l\'ordinateur'], correct: 2, explanation: '"sudo apt install" est la commande d\'installation sous Ubuntu. "vlc" est le nom du logiciel à installer.' },
+          { id: 'vq06-q3', question: 'Les applications de la Logithèque sont-elles payantes ?', options: ['Toutes sont payantes', 'La grande majorité est gratuite, quelques-unes sont payantes', 'Toutes sont gratuites sans exception', 'Il faut un abonnement mensuel'], correct: 1, explanation: 'La grande majorité des applications dans la Logithèque sont gratuites. Quelques applications commerciales (jeux, logiciels pro) peuvent être payantes.' },
+        ],
+        prevLesson: 'imprimante',
+        nextLesson: 'decouvrir-terminal',
+      },
+    ],
+  },
+
+  // ══════════════════════════════════════════════════════════════
+  // MODULE 5 — LE TERMINAL
+  // ══════════════════════════════════════════════════════════════
+  {
+    id: 'terminal',
+    title: 'Le Terminal',
+    description: 'Apprivoiser la ligne de commande — l\'outil le plus puissant de Linux, expliqué sans peur.',
+    icon: '⌨️',
+    color: '#0ea5e9',
+    lessons: [
+      {
+        id: 'tm-01',
+        slug: 'decouvrir-terminal',
+        title: 'Découvrir le Terminal',
+        subtitle: 'L\'outil qui fait peur mais qui change tout',
+        duration: '10 min',
+        icon: '🖥️',
+        intro: 'Le Terminal est une fenêtre noire où on tape des commandes texte. Ça fait peur au premier abord — mais c\'est l\'outil le plus puissant de Linux, et vous n\'avez besoin de connaître que 10 commandes pour 90% des situations.',
+        sections: [
           {
-            id: 'vq02-q1',
-            question: 'Comment installer une application sous Ubuntu de façon simple et sécurisée ?',
-            options: [
-              'Télécharger un .exe sur internet',
-              'Via la Logithèque Ubuntu (Ubuntu Software)',
-              'Appeler le service technique',
-              'Acheter un CD',
-            ],
-            correct: 1,
-            explanation: 'La Logithèque Ubuntu est le moyen le plus simple et sécurisé d\'installer des applications. Tous les logiciels y sont vérifiés et gratuits.',
+            title: 'C\'est quoi exactement le Terminal ?',
+            content: 'Le Terminal (aussi appelé "console" ou "ligne de commande") est une interface texte pour communiquer avec votre ordinateur. Au lieu de cliquer sur des icônes, vous tapez des mots.\n\nC\'est l\'ancêtre de l\'interface graphique — les ordinateurs fonctionnaient comme ça avant Windows. Et c\'est encore la façon la plus directe et la plus puissante d\'interagir avec Linux.',
+            tip: 'Ouvrir le Terminal : appuyez sur Super et tapez "Terminal", ou faites Ctrl+Alt+T.',
+            screenshot: 'Terminal Ubuntu ouvert — fond noir avec le curseur clignotant',
           },
           {
-            id: 'vq02-q2',
-            question: 'Que fait la commande "sudo apt install vlc" dans le Terminal ?',
-            options: [
-              'Elle supprime VLC',
-              'Elle met à jour Ubuntu',
-              'Elle installe le logiciel VLC',
-              'Elle redémarre l\'ordinateur',
-            ],
-            correct: 2,
-            explanation: '"sudo apt install" est la commande d\'installation sous Ubuntu. "vlc" est le nom du logiciel à installer. Simple et efficace !',
+            title: 'Décrypter ce que vous voyez',
+            content: 'Quand vous ouvrez le Terminal, vous voyez quelque chose comme :\n\nelvisfzapp@ubuntu:~$\n\nÇa veut dire :\n• elvisfzapp = votre nom d\'utilisateur\n• ubuntu = le nom de votre ordinateur\n• ~ = vous êtes dans votre dossier personnel (Maison)\n• $ = vous êtes un utilisateur normal (pas l\'administrateur)\n\nLe curseur clignote après le $ — c\'est là que vous tapez.',
+            screenshot: 'Terminal avec le prompt annoté : utilisateur, machine, dossier, symbole $',
+          },
+          {
+            title: 'Votre première commande',
+            content: 'Commençons par quelque chose de simple et inoffensif.',
+            steps: ['Ouvrez le Terminal (Ctrl+Alt+T)', 'Tapez : date', 'Appuyez sur Entrée', 'Le Terminal affiche la date et l\'heure actuelles', 'Tapez : whoami', 'Appuyez sur Entrée', 'Le Terminal affiche votre nom d\'utilisateur'],
+            tip: 'Si vous vous trompez, utilisez la flèche ← pour corriger, ou Ctrl+C pour annuler une commande en cours.',
+            screenshot: 'Terminal affichant le résultat des commandes date et whoami',
           },
         ],
-        prevLesson: 'premiers-pas',
+        quiz: [
+          { id: 'tm01-q1', question: 'Quel raccourci clavier ouvre le Terminal sous Ubuntu ?', options: ['Ctrl+Alt+Suppr', 'Ctrl+Alt+T', 'Super+T', 'Alt+F4'], correct: 1, explanation: 'Ctrl+Alt+T est le raccourci universel pour ouvrir un Terminal sous Ubuntu.' },
+          { id: 'tm01-q2', question: 'Que signifie le symbole "~" dans le Terminal ?', options: ['Vous êtes administrateur', 'Vous êtes dans votre dossier personnel', 'Le Terminal est en mode danger', 'Il n\'y a pas de connexion internet'], correct: 1, explanation: 'Le ~ (tilde) représente votre dossier personnel (/home/votrenom). C\'est votre "Maison" sous Linux.' },
+          { id: 'tm01-q3', question: 'Quelle commande affiche votre nom d\'utilisateur dans le Terminal ?', options: ['username', 'whoami', 'myname', 'id'], correct: 1, explanation: 'La commande "whoami" (littéralement "qui suis-je ?") affiche le nom d\'utilisateur actuellement connecté.' },
+        ],
+        prevLesson: 'installer-applications',
+        nextLesson: 'commandes-essentielles',
+      },
+      {
+        id: 'tm-02',
+        slug: 'commandes-essentielles',
+        title: 'Les commandes essentielles',
+        subtitle: 'Les 10 commandes qui suffisent pour tout',
+        duration: '15 min',
+        icon: '📝',
+        intro: 'Vous n\'avez pas besoin de connaître des centaines de commandes. Ces 10 commandes couvrent 90% de ce que vous aurez à faire dans le Terminal au quotidien.',
+        sections: [
+          {
+            title: 'Se déplacer et voir ses fichiers',
+            content: 'Ces commandes vous permettent de naviguer dans vos dossiers :\n\n• ls — liste le contenu du dossier actuel\n• ls -la — liste détaillée avec les fichiers cachés\n• cd Documents — aller dans le dossier "Documents"\n• cd .. — remonter d\'un niveau\n• cd ~ — revenir à la Maison\n• pwd — afficher où vous êtes\n• clear — effacer l\'écran (ou Ctrl+L)',
+            steps: ['Tapez ls et Entrée — voyez vos fichiers', 'Tapez cd Documents et Entrée — entrez dans Documents', 'Tapez ls et Entrée — voyez le contenu', 'Tapez cd .. et Entrée — remontez', 'Tapez pwd et Entrée — confirmez où vous êtes'],
+            screenshot: 'Terminal montrant ls, cd et pwd en action avec les résultats',
+          },
+          {
+            title: 'Gérer les fichiers et dossiers',
+            content: 'Ces commandes vous permettent de créer, copier et supprimer :\n\n• mkdir NomDossier — créer un nouveau dossier\n• cp fichier.txt copie.txt — copier un fichier\n• mv fichier.txt Documents/ — déplacer un fichier\n• mv ancien.txt nouveau.txt — renommer un fichier\n• rm fichier.txt — supprimer un fichier ⚠️\n• rm -r DossierVide/ — supprimer un dossier vide',
+            warning: 'La commande rm est définitive — il n\'y a pas de corbeille. Vérifiez bien ce que vous supprimez avant d\'appuyer sur Entrée.',
+            screenshot: 'Terminal avec mkdir, cp, mv en action — résultats affichés',
+          },
+          {
+            title: 'Les commandes système essentielles',
+            content: 'Les commandes les plus utiles au quotidien :\n\n• sudo apt update — mettre à jour la liste des logiciels disponibles\n• sudo apt upgrade — installer les mises à jour\n• sudo apt install nomlogiciel — installer un logiciel\n• sudo apt remove nomlogiciel — désinstaller un logiciel\n• df -h — voir l\'espace disque disponible\n• free -h — voir la mémoire RAM disponible\n• reboot — redémarrer\n• poweroff — éteindre',
+            tip: '"sudo" signifie "Super User DO" — c\'est comme "Exécuter en tant qu\'administrateur" sous Windows. Le mot de passe demandé est le vôtre.',
+            screenshot: 'Terminal avec sudo apt update en cours — liste de paquets mise à jour',
+          },
+        ],
+        quiz: [
+          { id: 'tm02-q1', question: 'Quelle commande liste le contenu du dossier actuel ?', options: ['dir', 'ls', 'show', 'list'], correct: 1, explanation: '"ls" (list) affiche le contenu du dossier dans lequel vous vous trouvez.' },
+          { id: 'tm02-q2', question: 'Que fait la commande "cd .." ?', options: ['Copie un dossier', 'Remonte d\'un niveau dans l\'arborescence', 'Crée un nouveau dossier', 'Supprime le dossier actuel'], correct: 1, explanation: '"cd .." (change directory deux points) remonte d\'un niveau dans l\'arborescence des dossiers.' },
+          { id: 'tm02-q3', question: 'Que signifie "sudo" devant une commande ?', options: ['Super Utilisateur — exécute avec les droits administrateur', 'Sudo est le nom d\'un logiciel', 'Ça annule la commande', 'C\'est une faute de frappe courante'], correct: 0, explanation: '"sudo" (Super User DO) permet d\'exécuter une commande avec les droits administrateur, comme "Exécuter en tant qu\'administrateur" sous Windows.' },
+        ],
+        prevLesson: 'decouvrir-terminal',
+        nextLesson: 'mises-a-jour',
+      },
+    ],
+  },
+
+  // ══════════════════════════════════════════════════════════════
+  // MODULE 6 — ALLER PLUS LOIN
+  // ══════════════════════════════════════════════════════════════
+  {
+    id: 'aller-plus-loin',
+    title: 'Aller plus loin',
+    description: 'Mises à jour, personnalisation, sauvegardes et optimisation de votre Ubuntu.',
+    icon: '🚀',
+    color: '#8b5cf6',
+    lessons: [
+      {
+        id: 'al-01',
+        slug: 'mises-a-jour',
+        title: 'Mises à jour et maintenance',
+        subtitle: 'Garder Ubuntu sûr et performant',
+        duration: '10 min',
+        icon: '🔄',
+        intro: 'Les mises à jour sous Ubuntu sont simples, rapides et non intrusives. Pas de redémarrages forcés au mauvais moment, pas de mises à jour cachées. Vous décidez quand et comment.',
+        sections: [
+          {
+            title: 'Pourquoi mettre à jour ?',
+            content: 'Les mises à jour servent à trois choses :\n\n1. Sécurité — corriger les failles découvertes (prioritaire)\n2. Corrections de bugs — réparer des dysfonctionnements\n3. Nouvelles fonctionnalités — améliorer les logiciels\n\nContrairement à Windows, Ubuntu vous notifie des mises à jour sans les installer de force. Vous gardez le contrôle.',
+            tip: 'Sur Ubuntu LTS, vous recevez des mises à jour de sécurité pendant 5 ans. Pas besoin d\'acheter une nouvelle version comme sous Windows.',
+            screenshot: 'Notification Ubuntu "Mises à jour disponibles" — discrète en haut',
+          },
+          {
+            title: 'Mettre à jour via la Logithèque',
+            content: 'La façon la plus simple de faire les mises à jour.',
+            steps: ['Ouvrez la Logithèque (Ubuntu Software)', 'Cliquez sur l\'onglet "Mises à jour"', 'Cliquez "Mettre à jour" sur chaque application ou "Tout mettre à jour"', 'Entrez votre mot de passe si demandé', 'Attendez la fin — redémarrez si une mise à jour du noyau est présente'],
+            screenshot: 'Logithèque Ubuntu onglet Mises à jour avec plusieurs mises à jour disponibles',
+          },
+          {
+            title: 'Mettre à jour via le Terminal (la méthode complète)',
+            content: 'Deux commandes suffisent pour tout mettre à jour.',
+            steps: ['Ouvrez le Terminal (Ctrl+Alt+T)', 'Tapez : sudo apt update', 'Appuyez sur Entrée (met à jour la liste des paquets disponibles)', 'Tapez : sudo apt upgrade -y', 'Appuyez sur Entrée (installe toutes les mises à jour)', 'Redémarrez si le Terminal l\'indique'],
+            tip: 'Vous pouvez combiner les deux commandes : sudo apt update && sudo apt upgrade -y — le && signifie "et ensuite".',
+            screenshot: 'Terminal avec sudo apt update && sudo apt upgrade en cours',
+          },
+        ],
+        quiz: [
+          { id: 'al01-q1', question: 'À quoi servent principalement les mises à jour ?', options: ['À ralentir l\'ordinateur', 'À corriger les failles de sécurité, les bugs et apporter des améliorations', 'À changer l\'apparence', 'À désinstaller des logiciels'], correct: 1, explanation: 'Les mises à jour corrigent les failles de sécurité (priorité), réparent des bugs et apportent de nouvelles fonctionnalités.' },
+          { id: 'al01-q2', question: 'Quelle commande met à jour la liste des paquets disponibles ?', options: ['sudo apt upgrade', 'sudo apt update', 'sudo apt install', 'sudo apt refresh'], correct: 1, explanation: '"sudo apt update" met à jour la liste des paquets et de leurs versions disponibles. C\'est toujours la première étape avant une mise à jour.' },
+          { id: 'al01-q3', question: 'Pendant combien d\'années une version Ubuntu LTS reçoit-elle des mises à jour ?', options: ['1 an', '2 ans', '5 ans', '10 ans'], correct: 2, explanation: 'Les versions Ubuntu LTS (Long Term Support) reçoivent des mises à jour de sécurité pendant 5 ans.' },
+        ],
+        prevLesson: 'commandes-essentielles',
+        nextLesson: 'personnalisation',
+      },
+      {
+        id: 'al-02',
+        slug: 'personnalisation',
+        title: 'Personnaliser Ubuntu',
+        subtitle: 'Faire d\'Ubuntu votre espace à vous',
+        duration: '12 min',
+        icon: '🎨',
+        intro: 'L\'un des grands avantages de Linux est la personnalisation. Vous pouvez changer l\'apparence d\'Ubuntu en profondeur — thèmes, icônes, fond d\'écran, disposition du bureau. Voici comment.',
+        sections: [
+          {
+            title: 'Les réglages de base',
+            content: 'Les personnalisations accessibles directement dans les Paramètres :\n\n• Fond d\'écran : clic droit sur le bureau → Changer le fond d\'écran\n• Mode sombre/clair : Paramètres → Apparence → Style\n• Taille des icônes du dock : Paramètres → Apparence → Taille des icônes\n• Position du dock : Paramètres → Apparence → Position\n• Mise à l\'échelle : Paramètres → Affichages → Mise à l\'échelle (utile si le texte est trop petit)',
+            steps: ['Ouvrez Paramètres → Apparence', 'Choisissez le mode sombre ou clair', 'Ajustez la taille des icônes du dock', 'Changez la position du dock (bas, gauche, droite)'],
+            screenshot: 'Paramètres Ubuntu → Apparence avec les options de thème et dock',
+          },
+          {
+            title: 'GNOME Tweaks : les options avancées',
+            content: 'GNOME Tweaks est un outil qui débloque des options de personnalisation supplémentaires non disponibles dans les paramètres standards.',
+            steps: ['Installez GNOME Tweaks : sudo apt install gnome-tweaks', 'Ouvrez "Ajustements" (GNOME Tweaks) depuis les applications', 'Explorez : polices, thèmes, comportement des fenêtres, animation...'],
+            tip: 'GNOME Tweaks permet de changer les polices système, activer/désactiver les animations, personnaliser les boutons des fenêtres.',
+            screenshot: 'Interface GNOME Tweaks avec les options de personnalisation avancées',
+          },
+          {
+            title: 'Les thèmes et icônes',
+            content: 'Pour transformer complètement l\'apparence d\'Ubuntu, vous pouvez installer des thèmes et des packs d\'icônes.\n\nDeux méthodes :\n1. Via apt : sudo apt install yaru-theme-* pour les thèmes Yaru\n2. Via GNOME Look (gnome-look.org) — téléchargez des thèmes et placez-les dans ~/.themes/\n\nEnsuite, dans GNOME Tweaks → Apparence, choisissez votre thème.',
+            tip: 'Le thème Yaru (thème officiel Ubuntu) est superbe. Essayez Yaru-Dark pour le mode sombre.',
+            screenshot: 'Ubuntu avec un thème sombre élégant — transformation complète',
+          },
+        ],
+        quiz: [
+          { id: 'al02-q1', question: 'Comment activer le mode sombre sous Ubuntu ?', options: ['En installant un logiciel spécial', 'Dans Paramètres → Apparence → Style', 'Uniquement via le Terminal', 'C\'est impossible'], correct: 1, explanation: 'Le mode sombre s\'active dans Paramètres → Apparence → Style. Vous pouvez choisir Clair, Sombre ou Standard.' },
+          { id: 'al02-q2', question: 'Quel outil débloque des options de personnalisation avancées ?', options: ['GNOME Builder', 'GNOME Tweaks', 'GNOME Shell', 'Ubuntu Customize'], correct: 1, explanation: 'GNOME Tweaks (Ajustements) permet d\'accéder à des options avancées : polices, thèmes, comportement des fenêtres...' },
+          { id: 'al02-q3', question: 'Où trouver des thèmes pour Ubuntu ?', options: ['Sur le site de Microsoft', 'Uniquement dans la Logithèque Ubuntu', 'Sur gnome-look.org ou via apt', 'Les thèmes ne sont pas disponibles pour Ubuntu'], correct: 2, explanation: 'gnome-look.org propose des milliers de thèmes gratuits. Ils sont aussi disponibles via la commande apt pour les thèmes officiels.' },
+        ],
+        prevLesson: 'mises-a-jour',
+        nextLesson: 'sauvegardes',
+      },
+      {
+        id: 'al-03',
+        slug: 'sauvegardes',
+        title: 'Sauvegardes et récupération',
+        subtitle: 'Protéger vos données — la règle du 3-2-1',
+        duration: '12 min',
+        icon: '💾',
+        intro: 'Une sauvegarde est votre filet de sécurité. Sous Ubuntu, plusieurs outils vous permettent d\'automatiser et de sécuriser vos données importantes. On va voir comment mettre en place une stratégie solide.',
+        sections: [
+          {
+            title: 'La règle d\'or : le 3-2-1',
+            content: 'La règle de sauvegarde reconnue par tous les professionnels :\n\n• 3 copies de vos données\n• Sur 2 supports différents\n• Dont 1 hors site (cloud ou disque chez un proche)\n\nEn pratique pour un particulier : vos données sur votre PC + une copie sur disque externe + une copie sur Google Drive ou Nextcloud.',
+            tip: 'Un disque dur externe de 1 To coûte moins de 50€ et peut contenir des années de photos, vidéos et documents.',
+            screenshot: 'Infographie de la règle 3-2-1 : 3 copies, 2 supports, 1 hors site',
+          },
+          {
+            title: 'Déjà Dup : la sauvegarde automatique',
+            content: 'Ubuntu inclut Déjà Dup, un outil de sauvegarde automatique simple et efficace.',
+            steps: ['Appuyez sur Super et cherchez "Sauvegardes"', 'Cliquez sur "Emplacement de sauvegarde" → choisissez votre disque externe', 'Cliquez sur "Dossiers à sauvegarder" → ajoutez Documents, Images, Musique', 'Activez "Sauvegardes automatiques"', 'Cliquez "Sauvegarder maintenant" pour une première sauvegarde', 'Votre sauvegarde est programmée chaque semaine automatiquement'],
+            screenshot: 'Interface Déjà Dup avec les paramètres de sauvegarde configurés',
+          },
+          {
+            title: 'rsync : la sauvegarde en ligne de commande',
+            content: 'Pour les utilisateurs plus avancés, rsync est l\'outil de synchronisation le plus puissant de Linux.\n\nExemple : sauvegarder vos Documents sur un disque externe :\nrsync -av ~/Documents/ /media/votrenom/disque-externe/backup-documents/\n\nCette commande copie tous les changements depuis la dernière sauvegarde — rapide et efficace.',
+            tip: 'Ajoutez --delete à rsync pour supprimer du backup les fichiers que vous avez supprimés de l\'original : rsync -av --delete ~/Documents/ /media/.../backup/',
+            screenshot: 'Terminal avec rsync en cours — liste des fichiers copiés',
+          },
+        ],
+        quiz: [
+          { id: 'al03-q1', question: 'Que signifie la règle 3-2-1 en sauvegarde ?', options: ['3 ordinateurs, 2 disques durs, 1 clé USB', '3 copies, sur 2 supports différents, dont 1 hors site', '3 sauvegardes par jour, 2 par semaine, 1 par mois', '3 Go minimum, 2 emplacements, 1 cloud'], correct: 1, explanation: 'La règle 3-2-1 : 3 copies de vos données, sur 2 supports différents (ex : PC + disque externe), dont 1 hors site (cloud ou chez un proche).' },
+          { id: 'al03-q2', question: 'Quel outil de sauvegarde automatique est inclus dans Ubuntu ?', options: ['Time Machine', 'WinBackup', 'Déjà Dup', 'Acronis'], correct: 2, explanation: 'Déjà Dup est l\'outil de sauvegarde automatique inclus dans Ubuntu. Il s\'appelle "Sauvegardes" dans le menu des applications.' },
+          { id: 'al03-q3', question: 'Combien coûte un disque dur externe de 1 To ?', options: ['Plus de 200€', 'Entre 100€ et 200€', 'Moins de 50€', 'Il faut un abonnement mensuel'], correct: 2, explanation: 'Un disque dur externe de 1 To coûte généralement entre 40€ et 60€ — un investissement minimal pour protéger des années de données.' },
+        ],
+        prevLesson: 'personnalisation',
+        nextLesson: 'problemes-courants',
+      },
+    ],
+  },
+
+  // ══════════════════════════════════════════════════════════════
+  // MODULE 7 — URGENCES ET DÉPANNAGE
+  // ══════════════════════════════════════════════════════════════
+  {
+    id: 'urgences',
+    title: 'Urgences et dépannage',
+    description: 'PC bloqué, mot de passe oublié, système qui ne démarre plus — les solutions.',
+    icon: '🚑',
+    color: '#ef4444',
+    lessons: [
+      {
+        id: 'ur-01',
+        slug: 'problemes-courants',
+        title: 'Problèmes courants et solutions',
+        subtitle: 'Les pannes fréquentes et comment les régler',
+        duration: '15 min',
+        icon: '🔧',
+        intro: 'Même sous Ubuntu, des problèmes peuvent survenir. La bonne nouvelle : la plupart sont faciles à résoudre, et la communauté ubuntu-fr.org a probablement déjà répondu à votre question.',
+        sections: [
+          {
+            title: 'L\'écran noir au démarrage',
+            content: 'C\'est l\'un des problèmes les plus courants après une mise à jour. Solutions dans l\'ordre :\n\n1. Attendez 2-3 minutes — parfois c\'est juste lent\n2. Appuyez sur Ctrl+Alt+F2 pour passer en mode texte, puis Ctrl+Alt+F1 pour revenir\n3. Si rien ne fonctionne, redémarrez en maintenant Shift — le menu GRUB apparaît\n4. Choisissez "Options avancées pour Ubuntu" → sélectionnez la version précédente du noyau',
+            tip: 'La cause la plus fréquente d\'écran noir est un conflit avec le pilote graphique après une mise à jour. La solution est dans le menu GRUB.',
+            screenshot: 'Menu GRUB Ubuntu avec les options avancées et noyaux disponibles',
+          },
+          {
+            title: 'Le Wi-Fi ne fonctionne pas',
+            content: 'Si votre Wi-Fi n\'est pas reconnu après l\'installation :\n\n1. Vérifiez que le Wi-Fi n\'est pas désactivé physiquement (touche Fn+F2 sur certains PC)\n2. Dans le Terminal : sudo rfkill unblock all (débloque les interfaces réseau)\n3. Vérifiez si votre carte Wi-Fi est reconnue : lspci | grep -i wireless\n4. Cherchez le modèle de votre carte + "Ubuntu" sur ubuntu-fr.org',
+            steps: ['Ouvrez le Terminal (Ctrl+Alt+T)', 'Tapez : sudo rfkill unblock all', 'Tapez : sudo systemctl restart NetworkManager', 'Vérifiez si le Wi-Fi apparaît en haut à droite'],
+            screenshot: 'Terminal avec les commandes rfkill et leur résultat',
+          },
+          {
+            title: 'Une application plante ou ne répond plus',
+            content: 'Si une application se bloque et ne répond plus :\n\n1. Attendez 30 secondes — parfois elle se débloquer\n2. Clic droit sur la barre des tâches → "Forcer à quitter"\n3. Via le Terminal : tapez killall nom-de-l-application\n4. En dernier recours : xkill (cliquez ensuite sur la fenêtre bloquée)\n\nSi une application plante souvent, cherchez des mises à jour ou réinstallez-la.',
+            tip: 'Sous Ubuntu, une application qui plante ne bloque JAMAIS tout le système. Vous pouvez toujours fermer la fenêtre ou redémarrer uniquement ce programme.',
+            screenshot: 'Moniteur système Ubuntu avec les processus et bouton "Arrêter le processus"',
+          },
+          {
+            title: 'Le disque est plein',
+            content: 'Si Ubuntu vous signale que le disque est plein :\n\n1. Vérifiez l\'espace : df -h dans le Terminal\n2. Nettoyez les paquets inutiles : sudo apt autoremove && sudo apt autoclean\n3. Videz la corbeille : clic droit sur l\'icône Corbeille → Vider\n4. Cherchez les gros fichiers : du -sh ~/* | sort -hr | head -20\n5. Désinstallez les applications que vous n\'utilisez plus',
+            screenshot: 'Terminal avec df -h montrant l\'espace disque utilisé par partition',
+          },
+        ],
+        quiz: [
+          { id: 'ur01-q1', question: 'Que faire si Ubuntu affiche un écran noir au démarrage ?', options: ['Réinstaller Ubuntu immédiatement', 'Appuyer sur Shift au démarrage pour accéder au menu GRUB et choisir un noyau précédent', 'Acheter un nouveau PC', 'Formater le disque dur'], correct: 1, explanation: 'Maintenir Shift au démarrage ouvre le menu GRUB. "Options avancées" permet de choisir un noyau précédent, souvent la solution à l\'écran noir.' },
+          { id: 'ur01-q2', question: 'Quelle commande libère de l\'espace en supprimant les paquets inutiles ?', options: ['sudo apt remove all', 'sudo apt autoremove && sudo apt autoclean', 'rm -rf /tmp', 'sudo clean disk'], correct: 1, explanation: '"sudo apt autoremove" supprime les dépendances inutiles. "sudo apt autoclean" nettoie le cache des paquets téléchargés.' },
+          { id: 'ur01-q3', question: 'Une application qui plante sous Ubuntu bloque-t-elle tout le système ?', options: ['Oui, il faut toujours redémarrer', 'Non, on peut toujours fermer l\'application ou le Terminal sans redémarrer', 'Ça dépend du logiciel', 'Oui, c\'est une limitation de Linux'], correct: 1, explanation: 'Sous Ubuntu (Linux), une application qui plante n\'affecte pas les autres. Vous pouvez toujours fercer à quitter la fenêtre problématique sans redémarrer.' },
+        ],
+        prevLesson: 'sauvegardes',
+        nextLesson: 'mot-de-passe-oublie',
+      },
+      {
+        id: 'ur-02',
+        slug: 'mot-de-passe-oublie',
+        title: 'Mot de passe oublié',
+        subtitle: 'Récupérer l\'accès à votre compte Ubuntu',
+        duration: '10 min',
+        icon: '🔑',
+        intro: 'Vous avez oublié votre mot de passe Ubuntu ? Pas de panique. Il existe une procédure de récupération simple qui ne nécessite aucun logiciel supplémentaire.',
+        sections: [
+          {
+            title: 'La méthode : le mode recovery',
+            content: 'Ubuntu dispose d\'un mode de récupération accessible au démarrage. C\'est de là que vous pouvez réinitialiser votre mot de passe.',
+            steps: ['Redémarrez votre ordinateur', 'Maintenez Shift appuyé pendant le démarrage jusqu\'à voir le menu GRUB', 'Choisissez "Options avancées pour Ubuntu"', 'Choisissez la ligne avec "(recovery mode)" à la fin', 'Dans le menu de récupération, choisissez "root — Ouvrir une session en tant qu\'administrateur"', 'Tapez : passwd votrenom (remplacez votrenom par votre identifiant)', 'Entrez votre nouveau mot de passe deux fois', 'Tapez : reboot pour redémarrer'],
+            warning: 'Cette procédure nécessite un accès physique à l\'ordinateur. Si quelqu\'un d\'autre peut accéder physiquement à votre machine, il peut faire de même — pensez à activer le mot de passe BIOS pour plus de sécurité.',
+            screenshot: 'Menu GRUB Ubuntu avec l\'option "recovery mode" surlignée',
+          },
+          {
+            title: 'Via la clé USB Ubuntu (si recovery inaccessible)',
+            content: 'Si le menu GRUB n\'apparaît pas ou si recovery mode ne fonctionne pas, la clé USB Ubuntu est votre solution de secours.',
+            steps: ['Démarrez sur votre clé USB Ubuntu en mode live', 'Ouvrez le Terminal', 'Montez votre partition Ubuntu : sudo mount /dev/sda2 /mnt (adapter sda2 selon votre config)', 'Entrez dans le système : sudo chroot /mnt', 'Réinitialisez le mot de passe : passwd votrenom', 'Quittez : exit puis reboot'],
+            tip: 'Si vous ne savez pas quelle partition est Ubuntu, tapez : lsblk pour voir toutes les partitions.',
+            screenshot: 'Terminal en mode live avec la procédure chroot affichée',
+          },
+        ],
+        quiz: [
+          { id: 'ur02-q1', question: 'Comment accéder au mode recovery d\'Ubuntu ?', options: ['En démarrant sur une clé USB', 'En maintenant Shift au démarrage et en choisissant "recovery mode" dans GRUB', 'En appuyant sur F8 pendant le démarrage de Windows', 'En appelant le support Canonical'], correct: 1, explanation: 'Maintenir Shift au démarrage ouvre le menu GRUB. "Options avancées" → "recovery mode" donne accès aux outils de récupération.' },
+          { id: 'ur02-q2', question: 'Quelle commande Terminal réinitialise le mot de passe d\'un utilisateur ?', options: ['resetpassword username', 'passwd username', 'newpassword username', 'changepass username'], correct: 1, explanation: 'La commande "passwd suivi du nom d\'utilisateur" permet de définir un nouveau mot de passe. Elle demande de le saisir deux fois pour confirmation.' },
+        ],
+        prevLesson: 'problemes-courants',
+        nextLesson: 'reparer-depuis-cle-usb',
+      },
+      {
+        id: 'ur-03',
+        slug: 'reparer-depuis-cle-usb',
+        title: 'Réparer depuis la clé USB',
+        subtitle: 'Votre filet de sécurité ultime',
+        duration: '15 min',
+        icon: '🛡️',
+        intro: 'Votre clé USB Ubuntu n\'est pas seulement un outil d\'installation. C\'est aussi un outil de secours puissant qui peut réparer un système qui ne démarre plus. Voici comment l\'utiliser.',
+        sections: [
+          {
+            title: 'Boot-Repair : réparer GRUB en un clic',
+            content: 'Si Ubuntu ne démarre plus après une mise à jour ou une manipulation, Boot-Repair peut résoudre 90% des problèmes de démarrage automatiquement.',
+            steps: ['Démarrez sur votre clé USB Ubuntu en mode live', 'Connectez-vous à internet', 'Ouvrez le Terminal et tapez :', 'sudo add-apt-repository ppa:yannubuntu/boot-repair', 'sudo apt update && sudo apt install boot-repair', 'Tapez : boot-repair', 'Cliquez "Réparer le démarrage"', 'Suivez les instructions — redémarrez'],
+            tip: 'Boot-Repair génère un rapport en ligne avec un code. Si ça ne fonctionne pas, postez ce code sur le forum ubuntu-fr.org pour obtenir de l\'aide.',
+            screenshot: 'Interface Boot-Repair avec le bouton "Réparer le démarrage"',
+          },
+          {
+            title: 'Récupérer des fichiers depuis le mode live',
+            content: 'Si Ubuntu ne démarre plus mais que votre disque est intact, vous pouvez récupérer vos fichiers depuis le mode live.\n\nEn mode live, vous pouvez accéder à votre ancien disque et copier vos fichiers vers un disque externe — avant même de réparer ou réinstaller Ubuntu.',
+            steps: ['Démarrez en mode live depuis la clé USB', 'Ouvrez le gestionnaire de fichiers', 'Dans le panneau gauche, trouvez votre ancien disque Ubuntu', 'Cliquez dessus — il se monte automatiquement', 'Naviguez vers /home/votrenom/', 'Copiez vos Documents, Images, Musique vers un disque externe'],
+            screenshot: 'Gestionnaire de fichiers Ubuntu en mode live avec le disque monté',
+          },
+          {
+            title: 'Réinstaller Ubuntu en conservant ses données',
+            content: 'Si rien ne fonctionne et qu\'il faut réinstaller, sachez que l\'installeur Ubuntu offre une option "Réinstaller Ubuntu" qui réinstalle le système sans toucher à votre dossier personnel (/home).\n\nVos documents, photos, paramètres et la plupart de vos fichiers personnels sont préservés.',
+            steps: ['Démarrez sur la clé USB Ubuntu', 'Cliquez "Installer Ubuntu"', 'À l\'étape "Type d\'installation", choisissez "Réinstaller Ubuntu"', 'Confirmez — Ubuntu se réinstalle en gardant /home intact', 'Après le redémarrage, retrouvez vos fichiers'],
+            warning: 'L\'option "Réinstaller Ubuntu" préserve /home mais réinstalle tous les logiciels. Vous devrez réinstaller vos applications (pas vos données).',
+            screenshot: 'Installeur Ubuntu avec l\'option "Réinstaller Ubuntu" sélectionnée',
+          },
+        ],
+        quiz: [
+          { id: 'ur03-q1', question: 'Quel outil répare automatiquement les problèmes de démarrage Ubuntu ?', options: ['Ubuntu Repair', 'Boot-Repair', 'GRUB-Fix', 'StartupFix'], correct: 1, explanation: 'Boot-Repair est un outil qui répare automatiquement 90% des problèmes de démarrage Ubuntu, notamment les problèmes GRUB.' },
+          { id: 'ur03-q2', question: 'Peut-on récupérer ses fichiers si Ubuntu ne démarre plus ?', options: ['Non, les fichiers sont perdus si Ubuntu ne démarre pas', 'Oui, en démarrant depuis la clé USB live et en accédant au disque', 'Seulement si on a une sauvegarde', 'Seulement avec un logiciel payant'], correct: 1, explanation: 'En démarrant depuis la clé USB live, vous pouvez accéder à votre disque dur et copier vos fichiers même si Ubuntu ne démarre plus.' },
+          { id: 'ur03-q3', question: 'L\'option "Réinstaller Ubuntu" préserve-t-elle vos documents personnels ?', options: ['Non, tout est effacé', 'Oui, elle préserve /home avec vos fichiers personnels', 'Seulement les documents Word', 'Seulement si ils sont dans le bureau'], correct: 1, explanation: '"Réinstaller Ubuntu" préserve le dossier /home (vos fichiers personnels) mais réinstalle le système et les applications.' },
+        ],
+        prevLesson: 'mot-de-passe-oublie',
       },
     ],
   },
