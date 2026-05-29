@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+  --ubuntu-orange: #E95420;
+  --ubuntu-aubergine: #2C001E;
+  --ubuntu-warm: #F7F3EF;
+  --ubuntu-bark: #AEA79F;
+  --ubuntu-clay: #77216F;
+  --ubuntu-midnight: #1A0A14;
+  --ubuntu-cream: #FBF7F4;
+  --ubuntu-leaf: #0E8420;
+  --ubuntu-sky: #0099CC;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--ubuntu-cream);
+  color: var(--ubuntu-aubergine);
+}
+
+h1, h2, h3 {
+  font-family: 'Fraunces', serif;
+}
+
+.ubuntu-gradient {
+  background: linear-gradient(135deg, var(--ubuntu-aubergine) 0%, #4a0d3a 50%, #2C001E 100%);
+}
