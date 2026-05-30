@@ -238,11 +238,17 @@ h1, h2, h3, h4 {
 /* Navbar mobile */
 @media (max-width: 640px) {
   .upt-nav {
-    padding: 0 16px;
-    height: 56px;
+    padding: 0 12px;
+    height: 52px;
+    flex-wrap: nowrap;
+  }
+  .upt-nav-brand {
+    flex-shrink: 0;
+    gap: 6px !important;
   }
   .upt-nav-brand-text {
-    font-size: 16px;
+    font-size: 14px !important;
+    white-space: nowrap;
   }
   .upt-nav-links {
     gap: 12px;
@@ -253,6 +259,7 @@ h1, h2, h3, h4 {
   .upt-nav-cta {
     padding: 7px 12px;
     font-size: 13px;
+    white-space: nowrap;
   }
 }
 

@@ -8,8 +8,8 @@ export default function Navbar({ backLink, backLabel }: { backLink?: string; bac
   return (
     <>
       <nav className="upt-nav">
-        <Link href="/" className="upt-nav-brand">
-          <span style={{ fontSize: '26px' }}>🐧</span>
+        <Link href="/" className="upt-nav-brand" style={{ whiteSpace: 'nowrap', flexShrink: 0 }}>
+          <span style={{ fontSize: '22px' }}>🐧</span>
           <span className="upt-nav-brand-text">Ubuntu Pour Tous</span>
         </Link>
 
