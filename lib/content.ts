@@ -69,13 +69,15 @@ export const MODULES: Module[] = [
           {
             title: 'Qui a créé Linux ?',
             content: 'En 1991, un étudiant finlandais de 21 ans nommé Linus Torvalds était frustré par les systèmes existants. Il a décidé d\'en créer un lui-même — pour le plaisir — et de le partager gratuitement avec tout le monde.\n\nDepuis, des milliers de développeurs du monde entier ont contribué à l\'améliorer. Aujourd\'hui, Linux fait tourner 96% des serveurs d\'internet, tous les smartphones Android, la Station spatiale internationale, et des centaines de millions d\'ordinateurs.',
-            screenshot: 'Photo de Linus Torvalds jeune + infographie "Linux est partout"',
+            screenshot: 'Linus Torvalds, créateur de Linux',
+            screenshotFile: '/screenshots/linus-torvalds.jpg',
           },
           {
             title: 'Ubuntu : Linux pour tout le monde',
             content: 'Il existe des dizaines de versions de Linux, appelées "distributions". Ubuntu est la plus populaire pour les débutants — elle est pensée pour être simple, belle et accessible.\n\nLe mot "Ubuntu" vient du zoulou et signifie "Je suis ce que je suis grâce à ce que nous sommes tous" — une belle philosophie pour un logiciel communautaire.',
             tip: 'Ubuntu est à Linux ce que Chrome est à internet : la porte d\'entrée la plus facile et la plus accueillante.',
-            screenshot: 'Capture du bureau Ubuntu 24.04 — propre et moderne',
+            screenshot: 'Linux est partout : serveurs, smartphones, voitures, cloud...',
+            screenshotFile: '/screenshots/linux-est-partout.png',
           },
         ],
         quiz: [
