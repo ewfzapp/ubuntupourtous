@@ -13,6 +13,7 @@ export interface Section {
   warning?: string;
   steps?: string[];
   screenshot?: string;
+  screenshotFile?: string;
 }
 
 export interface Lesson {
@@ -63,6 +64,7 @@ export const MODULES: Module[] = [
             content: 'Votre ordinateur a besoin d\'un chef d\'orchestre pour fonctionner : quelque chose qui gère le clavier, l\'écran, les fichiers, les programmes. Ce chef d\'orchestre, c\'est le système d\'exploitation.\n\nVous connaissez probablement Windows (Microsoft) ou macOS (Apple). Linux est simplement une troisième option — sauf qu\'il est gratuit, libre, et que personne n\'en est propriétaire.',
             tip: 'Un système d\'exploitation, c\'est comme le directeur d\'un hôtel : vous ne le voyez pas travailler, mais sans lui, rien ne fonctionne.',
             screenshot: 'Comparaison visuelle : logo Windows, macOS et Linux côte à côte',
+            screenshotFile: '/screenshots/windows-macos-linux.png',
           },
           {
             title: 'Qui a créé Linux ?',

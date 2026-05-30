@@ -89,12 +89,27 @@ export default async function LessonPage({ params }: { params: Promise<{ slug: s
                   <p key={i} style={{ fontSize: '14px', color: 'var(--upt-muted)', lineHeight: 1.85, marginBottom: '10px' }}>{para}</p>
                 ))}
 
-                {/* Screenshot */}
-                <div style={{ background: 'linear-gradient(135deg, #f5f0eb 0%, #ede7e0 100%)', border: '1.5px dashed #c8bdb5', borderRadius: '10px', padding: '24px 16px', textAlign: 'center', margin: '14px 0' }}>
-                  <div style={{ fontSize: '24px', marginBottom: '6px' }}>📸</div>
-                  <div style={{ fontSize: '10px', fontWeight: 700, color: 'var(--upt-orange)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '3px' }}>Capture d'écran</div>
-                  <div style={{ fontSize: '11px', color: 'var(--upt-bark)' }}>{section.screenshot || section.title}</div>
-                </div>
+                {/* Screenshot — vraie image ou placeholder */}
+                {section.screenshotFile ? (
+                  <div style={{ margin: '14px 0', borderRadius: '12px', overflow: 'hidden', border: '1px solid var(--upt-border)' }}>
+                    <img
+                      src={section.screenshotFile}
+                      alt={section.screenshot || section.title}
+                      style={{ width: '100%', height: 'auto', display: 'block' }}
+                    />
+                    {section.screenshot && (
+                      <div style={{ background: '#f5f0eb', padding: '8px 12px', fontSize: '11px', color: 'var(--upt-bark)', textAlign: 'center', fontStyle: 'italic' }}>
+                        {section.screenshot}
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <div style={{ background: 'linear-gradient(135deg, #f5f0eb 0%, #ede7e0 100%)', border: '1.5px dashed #c8bdb5', borderRadius: '10px', padding: '24px 16px', textAlign: 'center', margin: '14px 0' }}>
+                    <div style={{ fontSize: '24px', marginBottom: '6px' }}>📸</div>
+                    <div style={{ fontSize: '10px', fontWeight: 700, color: 'var(--upt-orange)', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '3px' }}>Capture d'écran</div>
+                    <div style={{ fontSize: '11px', color: 'var(--upt-bark)' }}>{section.screenshot || section.title}</div>
+                  </div>
+                )}
 
                 {section.steps && (
                   <div className="upt-steps">
