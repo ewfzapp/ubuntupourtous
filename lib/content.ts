@@ -100,8 +100,7 @@ export const MODULES: Module[] = [
             title: 'C\'est gratuit — vraiment gratuit',
             content: 'Ubuntu est gratuit à télécharger, gratuit à installer, et gratuit à utiliser sans limite de temps. Pas de licence à renouveler, pas d\'abonnement, pas de version "pro" cachée derrière un paywall.\n\nLa suite bureautique LibreOffice (l\'équivalent de Word, Excel, PowerPoint) est incluse gratuitement. Le lecteur PDF, le lecteur vidéo, le gestionnaire de photos — tout est là, dès l\'installation.',
             tip: 'Une licence Windows 11 coûte entre 145€ et 200€. Ubuntu coûte 0€. Pour toujours.',
-            screenshot: 'Ubuntu vs Windows 2026 — comparaison coût, performance, sécurité',
-            screenshotFile: '/screenshots/ubuntu-vs-windows-2026.png',
+            screenshot: 'Comparaison prix : Windows 145€ vs Ubuntu 0€',
           },
           {
             title: 'Les virus ? Presque inexistants',
