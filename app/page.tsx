@@ -180,7 +180,7 @@ export default function HomePage() {
           justifyContent: 'center',
           marginTop: '64px',
           flexWrap: 'wrap',
-        }}>
+        }} className="home-stats">
           {STATS.map(s => (
             <div key={s.n} style={{ textAlign: 'center' }}>
               <div style={{

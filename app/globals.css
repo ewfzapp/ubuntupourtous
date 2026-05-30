@@ -232,3 +232,98 @@ h1, h2, h3, h4 {
   line-height: 1.6;
   flex: 1;
 }
+
+/* ══ RESPONSIVE MOBILE ══════════════════════════════════════════ */
+
+/* Navbar mobile */
+@media (max-width: 640px) {
+  .upt-nav {
+    padding: 0 16px;
+    height: 56px;
+  }
+  .upt-nav-brand-text {
+    font-size: 16px;
+  }
+  .upt-nav-links {
+    gap: 12px;
+  }
+  .upt-nav-link {
+    display: none;
+  }
+  .upt-nav-cta {
+    padding: 7px 12px;
+    font-size: 13px;
+  }
+}
+
+/* Layout leçon mobile : une colonne */
+.lesson-layout {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 24px;
+  align-items: start;
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 28px 20px 80px;
+}
+
+@media (max-width: 860px) {
+  .lesson-layout {
+    grid-template-columns: 1fr;
+    padding: 20px 16px 60px;
+    gap: 20px;
+  }
+  .lesson-sidebar {
+    position: static !important;
+  }
+}
+
+/* Hero mobile */
+@media (max-width: 640px) {
+  .lesson-hero {
+    padding: 24px 16px 20px !important;
+  }
+  .lesson-hero-title {
+    font-size: 1.5rem !important;
+  }
+  .lesson-hero-inner {
+    gap: 12px !important;
+  }
+  .lesson-hero-icon {
+    font-size: 32px !important;
+  }
+}
+
+/* Cards mobile */
+@media (max-width: 640px) {
+  .upt-card {
+    padding: 20px 16px;
+    border-radius: 14px;
+  }
+  .upt-steps {
+    padding: 14px 12px;
+  }
+}
+
+/* Stats home mobile — 2 colonnes égales */
+@media (max-width: 640px) {
+  .home-stats {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 24px !important;
+  }
+}
+
+/* Modules home mobile */
+@media (max-width: 640px) {
+  .home-wrap {
+    padding: 48px 16px 0 !important;
+  }
+}
+
+/* Nav prev/next mobile */
+@media (max-width: 480px) {
+  .lesson-nav {
+    grid-template-columns: 1fr !important;
+  }
+}
