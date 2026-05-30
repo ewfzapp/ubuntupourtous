@@ -75,13 +75,7 @@ export default function Navbar({ backLink, backLabel }: { backLink?: string; bac
         </div>
       )}
 
-      <style>{`
-        @media (max-width: 640px) {
-          .upt-nav-links { display: none !important; }
-          .upt-hamburger { display: block !important; }
-          .upt-nav-brand-text { font-size: 15px !important; }
-        }
-      `}</style>
+
     </>
   );
 }

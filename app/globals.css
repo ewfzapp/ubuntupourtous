@@ -235,31 +235,40 @@ h1, h2, h3, h4 {
 
 /* ══ RESPONSIVE MOBILE ══════════════════════════════════════════ */
 
+/* Hamburger caché par défaut */
+.upt-hamburger { display: none; }
+
 /* Navbar mobile */
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .upt-nav {
     padding: 0 12px;
     height: 52px;
     flex-wrap: nowrap;
+    overflow: hidden;
   }
   .upt-nav-brand {
     flex-shrink: 0;
-    gap: 6px !important;
+    white-space: nowrap;
+    min-width: 0;
   }
   .upt-nav-brand-text {
-    font-size: 14px !important;
+    font-size: 13px;
     white-space: nowrap;
   }
   .upt-nav-links {
-    gap: 12px;
+    display: none !important;
   }
-  .upt-nav-link {
-    display: none;
-  }
-  .upt-nav-cta {
-    padding: 7px 12px;
-    font-size: 13px;
-    white-space: nowrap;
+  .upt-hamburger {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background: none;
+    border: none;
+    color: #FBF7F4;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 4px 8px;
   }
 }
 
