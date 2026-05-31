@@ -207,18 +207,15 @@ export const MODULES: Module[] = [
           {
             title: 'Windows : le roi des entreprises',
             content: 'Windows est le système d\'exploitation le plus répandu au monde (environ 72% des PC). Sa force : la compatibilité avec presque tous les logiciels et périphériques. Sa faiblesse : le coût, la lenteur progressive, la vulnérabilité aux virus et la collecte de données.\n\nMicrosoft vit de la vente de licences et de services cloud. Votre PC Windows est, d\'une certaine façon, un produit que vous "louez" — et Microsoft en profite pour collecter des données et vous pousser vers ses services.',
-            screenshot: 'Bureau Windows 11 — interface familière mais chargée',
           },
           {
             title: 'macOS : l\'élégance à prix d\'or',
             content: 'macOS est le système d\'Apple. Beau, fluide, bien intégré avec l\'écosystème Apple (iPhone, iPad, iCloud). Mais il y a un gros inconvénient : vous devez acheter un Mac pour l\'utiliser — et les Mac coûtent très cher (800€ à 3000€+).\n\nmacOS est également bien plus résistant aux virus que Windows. Mais il reste un système propriétaire dont Apple contrôle chaque aspect.',
             tip: 'Ubuntu offre une expérience proche de macOS en termes de fluidité et de sécurité — mais sur votre PC existant, gratuitement.',
-            screenshot: 'Bureau macOS Sonoma — élégant mais réservé aux Mac',
           },
           {
             title: 'Linux/Ubuntu : la liberté',
             content: 'Ubuntu combine le meilleur des deux mondes : la sécurité de macOS et la compatibilité matérielle de Windows — le tout gratuitement.\n\nSes avantages uniques :\n• Totalement gratuit et open source\n• Pas de collecte de données\n• Fonctionne sur n\'importe quel PC\n• Communauté mondiale d\'entraide\n• Mises à jour gratuites pendant 5 ans (version LTS)\n• Personnalisable à l\'infini\n\nSon seul inconvénient réel : certains logiciels très spécifiques (Adobe Photoshop, certains jeux AAA) n\'ont pas de version native Linux — des alternatives existent, mais la transition demande un temps d\'adaptation.',
-            screenshot: 'Bureau Ubuntu 24.04 — moderne, épuré, personnalisable',
           },
         ],
         quiz: [
