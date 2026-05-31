@@ -385,6 +385,7 @@ export const MODULES: Module[] = [
             ],
             tip: 'Etcher vérifie automatiquement que la clé a bien été créée correctement. Si vous voyez "Flash Complete!", tout est parfait.',
             screenshot: 'Interface Balena Etcher avec les 3 étapes : fichier sélectionné, clé sélectionnée, bouton Flash',
+            screenshotFile: '/screenshots/etcher2.webp',
           },
         ],
         quiz: [
