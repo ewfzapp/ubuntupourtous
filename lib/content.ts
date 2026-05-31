@@ -358,6 +358,7 @@ export const MODULES: Module[] = [
               'Ne double-cliquez PAS sur le fichier — on va l\'utiliser autrement',
             ],
             screenshot: 'Capture du site ubuntu.com avec le bouton de téléchargement LTS entouré en rouge',
+            screenshotFile: '/screenshots/download.png',
           },
           {
             title: 'Étape 2 : Installer Balena Etcher',
