@@ -294,6 +294,7 @@ export const MODULES: Module[] = [
             content: 'Pour tester Ubuntu en live, il vous faut :\n• Une clé USB de 8 Go minimum (environ 5€)\n• Une connexion internet pour télécharger Ubuntu\n• 30 minutes de temps\n\nC\'est tout. Pas besoin de toucher à votre ordinateur, pas besoin de désinstaller quoi que ce soit.',
             tip: 'Vous avez probablement déjà une vieille clé USB qui traîne dans un tiroir. Vérifiez qu\'elle fait au moins 8 Go.',
             screenshot: 'Photo d\'une clé USB 16 Go — matériel suffisant pour Ubuntu',
+            screenshotFile: '/screenshots/ubuntu_usb_16go.svg',
           },
         ],
         quiz: [
