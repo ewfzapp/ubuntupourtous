@@ -151,6 +151,7 @@ export const MODULES: Module[] = [
             title: 'Votre vie privée vous appartient',
             content: 'Windows collecte énormément de données sur votre utilisation : ce que vous tapez, vos habitudes, vos fichiers. Ubuntu ne fait rien de tel. Canonical (l\'entreprise derrière Ubuntu) a un modèle économique basé sur les services aux entreprises — pas sur la revente de vos données.',
             screenshot: 'Capture : paramètres de confidentialité Ubuntu — minimalistes et clairs',
+            screenshotFile: '/screenshots/ubuntu-confidentialite.png',
           },
         ],
         quiz: [
