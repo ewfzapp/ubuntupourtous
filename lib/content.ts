@@ -371,6 +371,7 @@ export const MODULES: Module[] = [
             ],
             warning: 'Tout le contenu de votre clé USB sera effacé. Faites une sauvegarde si elle contient des fichiers importants.',
             screenshot: 'Capture du site balena.io/etcher avec le bouton de téléchargement',
+            screenshotFile: '/screenshots/etcher.png',
           },
           {
             title: 'Étape 3 : Créer la clé avec Etcher',
