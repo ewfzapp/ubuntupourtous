@@ -137,6 +137,7 @@ export const MODULES: Module[] = [
             content: 'Linux est nativement bien plus résistant aux virus que Windows. Pourquoi  Parce que sa conception même rend difficile l\'exécution d\'un programme malveillant sans votre autorisation explicite.\n\nLes auteurs de virus ciblent Windows car c\'est là que se trouvent 90% des victimes potentielles. Sur Linux, vous êtes une cible bien moins attractive.',
             tip: 'Sur Ubuntu, vous n\'avez pas besoin d\'antivirus. Le système lui-même est votre meilleure protection.',
             screenshot: 'Infographie : 90% des virus ciblent Windows, quasi 0% Linux',
+            screenshotFile: '/screenshots/virus-windows-linux.png',
           },
           {
             title: 'Ça redonne vie aux vieux PC',
