@@ -1,0 +1,94 @@
+<svg width="100%" viewBox="0 0 690 430" role="img" style="" xmlns="http://www.w3.org/2000/svg">
+<title style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">Comparaison prix Windows vs Ubuntu</title>
+<desc style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">Windows 11 coûte 145€, Ubuntu est gratuit pour toujours</desc>
+
+<defs>
+  <linearGradient id="winGrad" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#0078d4"/>
+    <stop offset="100%" stop-color="#005a9e"/>
+  </linearGradient>
+  <linearGradient id="ubuntuGrad" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#e65c00"/>
+    <stop offset="100%" stop-color="#c04400"/>
+  </linearGradient>
+</defs>
+
+<!-- Fond -->
+<rect width="680" height="420" rx="16" fill="#f8f5f0" style="fill:rgb(248, 245, 240);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- Titre -->
+<text x="340" y="44" font-family="Arial Black, sans-serif" font-size="20" font-weight="900" fill="#1a1a1a" text-anchor="middle" style="fill:rgb(26, 26, 26);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Arial Black&quot;, sans-serif;font-size:20px;font-weight:900;text-anchor:middle;dominant-baseline:auto">Combien coûte votre système ?</text>
+<text x="340" y="66" font-family="Arial, sans-serif" font-size="13" fill="#888" text-anchor="middle" style="fill:rgb(136, 136, 136);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:13px;font-weight:400;text-anchor:middle;dominant-baseline:auto">Licence OS · Usage personnel · Mise à jour incluse</text>
+
+<!-- Séparateur -->
+<line x1="60" y1="80" x2="620" y2="80" stroke="#e0d8d0" stroke-width="1" style="fill:rgb(0, 0, 0);stroke:rgb(224, 216, 208);color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- === WINDOWS === -->
+<!-- Carte Windows -->
+<rect x="48" y="96" width="268" height="290" rx="14" fill="#ffffff" stroke="#0078d4" stroke-width="2" style="fill:rgb(255, 255, 255);stroke:rgb(0, 120, 212);color:rgb(255, 255, 255);stroke-width:2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<!-- Header bleu -->
+<rect x="48" y="96" width="268" height="56" rx="14" fill="url(#winGrad)" style="stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="48" y="130" width="268" height="22" fill="#005a9e" style="fill:rgb(0, 90, 158);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<!-- Logo Windows simplifié -->
+<rect x="72" y="110" width="11" height="11" rx="1" fill="#ffffff" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="85" y="110" width="11" height="11" rx="1" fill="#ffffff" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="72" y="123" width="11" height="11" rx="1" fill="#ffffff" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="85" y="123" width="11" height="11" rx="1" fill="#ffffff" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="204" y="126" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:17px;font-weight:700;text-anchor:middle;dominant-baseline:auto">Windows 11</text>
+
+<!-- Prix Windows -->
+<text x="182" y="200" font-family="Arial Black, sans-serif" font-size="58" font-weight="900" fill="#0078d4" text-anchor="middle" style="fill:rgb(0, 120, 212);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Arial Black&quot;, sans-serif;font-size:58px;font-weight:900;text-anchor:middle;dominant-baseline:auto">145€</text>
+<text x="182" y="222" font-family="Arial, sans-serif" font-size="12" fill="#888" text-anchor="middle" style="fill:rgb(136, 136, 136);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto">licence unique · Home</text>
+
+<!-- Ligne sépar -->
+<line x1="72" y1="238" x2="292" y2="238" stroke="#eee" stroke-width="1" style="fill:rgb(0, 0, 0);stroke:rgb(238, 238, 238);color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- Details Windows -->
+<text x="88" y="260" font-family="Arial, sans-serif" font-size="12" fill="#cc0000" style="fill:rgb(204, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">✕  Payant à chaque nouveau PC</text>
+<text x="88" y="280" font-family="Arial, sans-serif" font-size="12" fill="#cc0000" style="fill:rgb(204, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">✕  Fin support octobre 2025</text>
+<text x="88" y="300" font-family="Arial, sans-serif" font-size="12" fill="#cc0000" style="fill:rgb(204, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">✕  Mises à jour forcées</text>
+<text x="88" y="320" font-family="Arial, sans-serif" font-size="12" fill="#cc0000" style="fill:rgb(204, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">✕  Publicités intégrées</text>
+<text x="88" y="340" font-family="Arial, sans-serif" font-size="12" fill="#cc0000" style="fill:rgb(204, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">✕  Antivirus recommandé (~40€/an)</text>
+
+<!-- === UBUNTU === -->
+<!-- Carte Ubuntu -->
+<rect x="364" y="96" width="268" height="290" rx="14" fill="#ffffff" stroke="#e65c00" stroke-width="2.5" style="fill:rgb(255, 255, 255);stroke:rgb(230, 92, 0);color:rgb(255, 255, 255);stroke-width:2.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<!-- Header orange -->
+<rect x="364" y="96" width="268" height="56" rx="14" fill="url(#ubuntuGrad)" style="stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="364" y="130" width="268" height="22" fill="#c04400" style="fill:rgb(192, 68, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<!-- Logo Ubuntu simplifié -->
+<circle cx="392" cy="120" r="14" fill="#ffffff" fill-opacity="0.25" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<circle cx="392" cy="120" r="8" fill="none" stroke="#ffffff" stroke-width="2.5" style="fill:none;stroke:rgb(255, 255, 255);color:rgb(255, 255, 255);stroke-width:2.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<circle cx="392" cy="110" r="3" fill="#ffffff" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<circle cx="401" cy="126" r="3" fill="#ffffff" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<circle cx="383" cy="126" r="3" fill="#ffffff" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="510" y="126" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:17px;font-weight:700;text-anchor:middle;dominant-baseline:auto">Ubuntu 26.04 LTS</text>
+
+<!-- Prix Ubuntu -->
+<text x="498" y="195" font-family="Arial Black, sans-serif" font-size="58" font-weight="900" fill="#e65c00" text-anchor="middle" style="fill:rgb(230, 92, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Arial Black&quot;, sans-serif;font-size:58px;font-weight:900;text-anchor:middle;dominant-baseline:auto">0€</text>
+<text x="498" y="222" font-family="Arial, sans-serif" font-size="12" fill="#888" text-anchor="middle" style="fill:rgb(136, 136, 136);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:12px;font-weight:400;text-anchor:middle;dominant-baseline:auto">gratuit · pour toujours · sur tous vos PC</text>
+
+<!-- Ligne sépar -->
+<line x1="388" y1="238" x2="608" y2="238" stroke="#eee" stroke-width="1" style="fill:rgb(0, 0, 0);stroke:rgb(238, 238, 238);color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- Details Ubuntu -->
+<text x="404" y="260" font-family="Arial, sans-serif" font-size="12" fill="#2a8a2a" style="fill:rgb(42, 138, 42);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">✓  Gratuit sur PC illimités</text>
+<text x="404" y="280" font-family="Arial, sans-serif" font-size="12" fill="#2a8a2a" style="fill:rgb(42, 138, 42);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">✓  Support 5 ans garanti</text>
+<text x="404" y="300" font-family="Arial, sans-serif" font-size="12" fill="#2a8a2a" style="fill:rgb(42, 138, 42);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">✓  Mises à jour choisies</text>
+<text x="404" y="320" font-family="Arial, sans-serif" font-size="12" fill="#2a8a2a" style="fill:rgb(42, 138, 42);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">✓  Aucune publicité</text>
+<text x="404" y="340" font-family="Arial, sans-serif" font-size="12" fill="#2a8a2a" style="fill:rgb(42, 138, 42);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:12px;font-weight:400;text-anchor:start;dominant-baseline:auto">✓  Antivirus inutile</text>
+
+<!-- Badge GRATUIT -->
+<circle cx="598" cy="106" r="28" fill="#2a8a2a" style="fill:rgb(42, 138, 42);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="598" y="101" font-family="Arial Black, sans-serif" font-size="9" font-weight="900" fill="#ffffff" text-anchor="middle" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Arial Black&quot;, sans-serif;font-size:9px;font-weight:900;text-anchor:middle;dominant-baseline:auto">100%</text>
+<text x="598" y="114" font-family="Arial Black, sans-serif" font-size="9" font-weight="900" fill="#ffffff" text-anchor="middle" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Arial Black&quot;, sans-serif;font-size:9px;font-weight:900;text-anchor:middle;dominant-baseline:auto">GRATUIT</text>
+
+<!-- VS badge central -->
+<circle cx="340" cy="241" r="26" fill="#1a1a1a" style="fill:rgb(26, 26, 26);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="340" y="248" font-family="Arial Black, sans-serif" font-size="16" font-weight="900" fill="#ffffff" text-anchor="middle" style="fill:rgb(255, 255, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Arial Black&quot;, sans-serif;font-size:16px;font-weight:900;text-anchor:middle;dominant-baseline:auto">VS</text>
+
+<!-- Footer économie -->
+<rect x="48" y="396" width="584" height="0" rx="8" style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="340" y="408" font-family="Arial, sans-serif" font-size="13" fill="#888" text-anchor="middle" style="fill:rgb(136, 136, 136);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:13px;font-weight:400;text-anchor:middle;dominant-baseline:auto">Économie réalisée : <tspan font-weight="700" fill="#2a8a2a" style="fill:rgb(42, 138, 42);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:Arial, sans-serif;font-size:13px;font-weight:700;text-anchor:middle;dominant-baseline:auto">145€ dès le premier PC — et bien plus sur la durée</tspan></text>
+
+</svg>
