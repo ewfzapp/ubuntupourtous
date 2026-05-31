@@ -101,12 +101,14 @@ export const MODULES: Module[] = [
             content: 'Ubuntu est gratuit à télécharger, gratuit à installer, et gratuit à utiliser sans limite de temps. Pas de licence à renouveler, pas d\'abonnement, pas de version "pro" cachée derrière un paywall.\n\nLa suite bureautique LibreOffice (l\'équivalent de Word, Excel, PowerPoint) est incluse gratuitement. Le lecteur PDF, le lecteur vidéo, le gestionnaire de photos — tout est là, dès l\'installation.',
             tip: 'Une licence Windows 11 coûte entre 145€ et 200€. Ubuntu coûte 0€. Pour toujours.',
             screenshot: 'Comparaison prix : Windows 145€ vs Ubuntu 0€',
+            screenshotFile: '/screenshots/ubuntu-vs-windows-2026.png',
           },
           {
             title: 'Les virus ? Presque inexistants',
             content: 'Linux est nativement bien plus résistant aux virus que Windows. Pourquoi ? Parce que sa conception même rend difficile l\'exécution d\'un programme malveillant sans votre autorisation explicite.\n\nLes auteurs de virus ciblent Windows car c\'est là que se trouvent 90% des victimes potentielles. Sur Linux, vous êtes une cible bien moins attractive.',
             tip: 'Sur Ubuntu, vous n\'avez pas besoin d\'antivirus. Le système lui-même est votre meilleure protection.',
-            screenshot: 'Infographie : 90% des virus ciblent Windows, quasi 0% Linux',
+            screenshot: '90% des virus ciblent Windows, quasi 0% Linux',
+            screenshotFile: '/screenshots/virus-windows-linux.png',
           },
           {
             title: 'Ça redonne vie aux vieux PC',
